@@ -29,6 +29,7 @@ typealias ContextMenuConstants = ViewConstants.ContextMenu
 typealias ContextMenuActionConstants = ContextMenuConstants.Actions
 typealias ContextMenuConfigurationConstants = ContextMenuConstants.Configurations
 typealias AlertConstants = ViewConstants.Alert
+typealias NotificationConstants = ViewConstants.Notification
 typealias ErrorConstants = ViewConstants.Error
 typealias EmptyConstants = ViewConstants.Empty
 typealias LabelConstants = ViewConstants.Label
@@ -333,25 +334,69 @@ struct Constants {
         
         struct Alert {
             
-//            struct SignOut {
-//
-//                static let title = "Sign Out?".localized()
-//                static let message = "If you sign out all of your data will be erased, continue?".localized()
-//                static let signOutActionTitle = "Sign Out".localized()
-//
-//                static func alertController(with handler: @escaping () -> Void) -> UIAlertController {
-//                    let controller = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
-//                    controller.addAction(Constants.View.Alert.cancelAction)
-//                    controller.addAction(UIAlertAction(title: signOutActionTitle, style: .destructive) { action in
-//                        handler()
-//                    } )
-//                    return controller
-//                }
-//
-//            }
+            struct TurnOnLocationServices {
+
+                static let title = "Turn On Location Services".localized()
+                static let message = "Location Services are turned off. to turn on, go to 'Settings > Privacy > Location Services'".localized()
+
+                static func alertController() -> UIAlertController {
+                    let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                    controller.addAction(ViewConstants.Alert.okAction)
+                    return controller
+                }
+
+            }
+            
+            struct LocationAccessDenied {
+
+                static let title = "Denied Location Access".localized()
+                static let message = "You've denied location access. to grant access, go to 'Settings > Privacy > Location Services > Tracker'".localized()
+
+                static func alertController() -> UIAlertController {
+                    let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                    controller.addAction(ViewConstants.Alert.okAction)
+                    return controller
+                }
+
+            }
+            
+            struct LocationAccessRestricted {
+
+                static let title = "Restricted Location Access".localized()
+                static let message = "Location access is restricted.".localized()
+
+                static func alertController() -> UIAlertController {
+                    let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                    controller.addAction(ViewConstants.Alert.okAction)
+                    return controller
+                }
+
+            }
             
             static let okAction = UIAlertAction(title: "Ok".localized(), style: .cancel, handler: nil)
             static let cancelAction = UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil)
+            
+        }
+        
+        // MARK: - Notification Constants
+        
+        struct Notification {
+            
+            struct LocationChanged {
+                
+                static let title = "Tracker".localized()
+                static let subtitle = "New location entry".localized()
+
+                static func notificationRequest(body: String) -> UNNotificationRequest {
+                    let content = UNMutableNotificationContent()
+                    content.title = title
+                    content.subtitle = subtitle
+                    content.body = body
+                    let request = UNNotificationRequest(identifier: "TrackerLocationChanged", content: content, trigger: nil)
+                    return request
+                }
+
+            }
             
         }
         

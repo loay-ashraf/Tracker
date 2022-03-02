@@ -6,32 +6,32 @@
 //
 
 import UIKit
-//import NotificationBannerSwift
 
 enum Alert {
     
-    case noInternet
-    case internetError
-    case networkError
-    case dataError
-    case signInError
-    case guestSignIn(() -> Void)
-    case clearSearchHistory(() -> Void)
-    case clearBookmarks(() -> Void)
-    case clearData
-    case signOut(() -> Void)
+    case locationServicesOff
+    case locationPermissionsDenied
+    case locationPermissionsRestricted
     
     var controller: UIAlertController {
         switch self {
-        default: return UIAlertController()
+        case .locationServicesOff: return AlertConstants.TurnOnLocationServices.alertController()
+        case .locationPermissionsDenied: return AlertConstants.LocationAccessDenied.alertController()
+        case .locationPermissionsRestricted: return AlertConstants.LocationAccessRestricted.alertController()
         }
     }
     
-//    var statusBarBanner: StatusBarNotificationBanner {
-//        switch self {
-//        case .noInternet: return AlertConstants.NoInternet.notificationBanner()
-//        default: return StatusBarNotificationBanner(title: "")
-//        }
-//    }
+}
+
+enum Notification {
+    
+    case locationChanged(String)
+    
+    var request: UNNotificationRequest {
+        switch self {
+        case .locationChanged(let body): return NotificationConstants.LocationChanged.notificationRequest(body: body)
+        }
+    }
     
 }
+
