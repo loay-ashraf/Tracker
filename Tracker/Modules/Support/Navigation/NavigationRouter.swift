@@ -11,37 +11,41 @@ class NavigationRouter {
     
     // MARK: - Properties
     
-    static var currentNavigationController: UINavigationController?
-    static var presentedViewController: UIViewController?
+    static var rootTabBarController: UITabBarController? { return UIApplication.rootTabBarController() }
+    static var currentNavigationController: UINavigationController? { return UIApplication.currentNavigationController() }
+    static var currentViewController: UIViewController? { return UIApplication.currentViewController() }
     
     // MARK: - Initialization
     
     private init() { }
     
+    // MARK: - Tab Bar Methods
+    
+    class func showTab(withIndex index: Int) {
+        guard let viewControllers = rootTabBarController?.viewControllers, index < viewControllers.count else {
+            return
+        }
+        rootTabBarController?.selectedIndex = index
+    }
+    
     // MARK: - Navigation Presentation Methods
     
     class func push(viewController: UIViewController) {
-        currentNavigationController = UIApplication.topNavigationController()
         currentNavigationController?.pushViewController(viewController, animated: true)
     }
     
     class func pop() {
-        if currentNavigationController == UIApplication.topNavigationController() {
-            currentNavigationController?.popViewController(animated: true)
-        }
+        currentNavigationController?.popViewController(animated: true)
     }
     
     // MARK: - Modal Presentation Methods
     
     class func present(viewController: UIViewController) {
-        let topViewController = UIApplication.topViewController()
-        presentedViewController = viewController
-        topViewController?.present(viewController, animated: true, completion: nil)
+        currentViewController?.present(viewController, animated: true, completion: nil)
     }
     
     class func dismiss() {
-        presentedViewController?.dismiss(animated: true, completion: nil)
-        presentedViewController = nil
+        currentViewController?.dismiss(animated: true, completion: nil)
     }
     
 }

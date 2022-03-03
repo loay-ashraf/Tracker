@@ -10,47 +10,47 @@ import MapKit
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate {
 
-    let locationManager = LocationManager.standard
-    let notificationManager = NotificationManager.standard
+    // MARK: - Properties
+    
+    let viewModel = HomeViewModel()
+    
+    // MARK: - View Outlets
     
     @IBOutlet weak var currentLocationView: UIView!
     @IBOutlet weak var currentLocationLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        locationManager.setup()
-        notificationManager.setup()
-        locationManager.bindLocation { [weak self] location in
-            self?.updateView(withLocation: location)
-        }
-        locationManager.startUpdate()
-    }
+    // MARK: - View Helper Methods
     
     func configureView() {
         currentLocationView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.85)
+        bindToViewModel()
     }
     
-    @MainActor func updateView(withLocation location: CLLocation?) {
+    func updateMapView(withLocation location: CLLocation?) {
         guard let location = location else {
             return
         }
-        renderLocationOnMap(location)
-        Task {
-            let locationString = await resolveLocationGeocode(location)
-            self.currentLocationLabel.text = locationString
-            self.notificationManager.sendNotification(notification: .locationChanged(locationString))
+        DispatchQueue.main.async {
+            self.renderLocationOnMap(location)
         }
     }
     
-}
-
-extension HomeViewController {
+    func updateLocationLabel(withLocationString locationString: String?) {
+        guard let locationString = locationString else {
+            return
+        }
+        DispatchQueue.main.async {
+            self.currentLocationLabel.text = locationString
+        }
+    }
     
     func renderLocationOnMap(_ location: CLLocation) {
         let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude,
@@ -63,24 +63,12 @@ extension HomeViewController {
         pin.coordinate = coordinate
         mapView.addAnnotation(pin)
     }
+
+    // MARK: - Bind to ViewModel Method
     
-    func resolveLocationGeocode(_ location: CLLocation) async -> String {
-        let geocoder = CLGeocoder()
-        return await withUnsafeContinuation { continuation in
-            geocoder.reverseGeocodeLocation(location, preferredLocale: .current) { placemarks, error in
-                var locationString = String()
-                guard let place = placemarks?.first, error == nil else {
-                    return
-                }
-                if let locality = place.locality {
-                    locationString.append(contentsOf: locality)
-                }
-                if let adminRegion = place.administrativeArea {
-                    locationString.append(contentsOf: ", \(adminRegion)")
-                }
-                continuation.resume(returning: locationString)
-            }
-        }
+    func bindToViewModel() {
+        viewModel.bindViewModel(locationListener: { [weak self] location in self?.updateMapView(withLocation: location) },
+                                locationStringListener: { [weak self] locationString in self?.updateLocationLabel(withLocationString: locationString) })
     }
     
 }

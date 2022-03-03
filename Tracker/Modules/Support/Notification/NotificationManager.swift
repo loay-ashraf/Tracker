@@ -11,12 +11,17 @@ import UIKit
 
 class NotificationManager: NSObject {
     
+    // MARK: - Properties
+    
     static let standard = NotificationManager()
     
     private let manager = UNUserNotificationCenter.current()
-    private var notificationCount = 0
+    
+    // MARK: - Initialization
     
     private override init() { super.init() }
+    
+    // MARK: - Setup Method
     
     func setup() {
         manager.delegate = self
@@ -24,22 +29,33 @@ class NotificationManager: NSObject {
         manager.requestAuthorization(options: authOptions, completionHandler: { success,error in })
     }
     
+    // MARK: - Notification Methods
+    
     func sendNotification(notification: Notification) {
-        guard UIApplication.shared.applicationState == .background else {
-            return
+        DispatchQueue.main.async {
+            guard UIApplication.shared.applicationState == .background else {
+                return
+            }
+            UIApplication.incrementAppBadgeNumber(byValue: 1)
+            self.manager.add(notification.request, withCompletionHandler: nil)
         }
-        notificationCount += 1
-        UIApplication.shared.applicationIconBadgeNumber = notificationCount
-        manager.add(notification.request, withCompletionHandler: nil)
+    }
+    
+    func resetNotificationBadge() {
+        DispatchQueue.main.async {
+            UIApplication.resetAppBadgeNumber()
+        }
     }
     
 }
 
 extension NotificationManager: UNUserNotificationCenterDelegate {
     
+    // MARK: - Notification Center Delegate
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        notificationCount = 0
-        UIApplication.shared.applicationIconBadgeNumber = 0
+        resetNotificationBadge()
+        NavigationRouter.showTab(withIndex: 1)
     }
     
 }
