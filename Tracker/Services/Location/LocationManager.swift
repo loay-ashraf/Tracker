@@ -26,27 +26,24 @@ class LocationManager: NSObject {
     
     // MARK: - Setup Method
     
-    func setup() {
-        guard servicesEnabled == true else {
-            AlertHelper.showAlert(alert: .locationServicesOff)
-            return
-        }
-        guard authorizationStatus != .denied else {
-            AlertHelper.showAlert(alert: .locationPermissionsDenied)
-            return
-        }
-        guard authorizationStatus != .restricted else {
-            AlertHelper.showAlert(alert: .locationPermissionsRestricted)
-            return
-        }
-        if authorizationStatus == .notDetermined {
-            manager.requestAlwaysAuthorization()
-        }
+    func setup() throws {
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.allowsBackgroundLocationUpdates = true
         manager.pausesLocationUpdatesAutomatically = true
         manager.startUpdatingLocation()
+        guard servicesEnabled == true else {
+            throw LocationError.locationServicesOff
+        }
+        guard authorizationStatus != .denied else {
+            throw LocationError.locationAccessDenied
+        }
+        guard authorizationStatus != .restricted else {
+            throw LocationError.locationAccessRestricted
+        }
+        if authorizationStatus == .notDetermined {
+            manager.requestAlwaysAuthorization()
+        }
     }
     
     // MARK: - Binding Methods

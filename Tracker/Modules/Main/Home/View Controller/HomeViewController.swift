@@ -30,25 +30,42 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     // MARK: - View Helper Methods
     
     func configureView() {
+        NavigationBarConstants.configureAppearance(for: navigationController?.navigationBar)
         currentLocationView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.85)
         bindToViewModel()
     }
     
-    func updateMapView(withLocation location: CLLocation?) {
-        guard let location = location else {
-            return
-        }
+    func updateLocationMap(withLocation location: CLLocation?) {
         DispatchQueue.main.async {
+            guard let location = location else {
+                return
+            }
             self.renderLocationOnMap(location)
         }
     }
     
     func updateLocationLabel(withLocationString locationString: String?) {
-        guard let locationString = locationString else {
-            return
-        }
         DispatchQueue.main.async {
-            self.currentLocationLabel.text = locationString
+            guard let locationString = locationString else {
+                UIView.transition(with: self.currentLocationView,
+                                  duration: 0.5,
+                                  options: .transitionCrossDissolve,
+                                  animations: {
+                                    self.currentLocationView.isHidden = true
+                                    self.currentLocationLabel.text = ""
+                                  },
+                                  completion: nil)
+                    
+                return
+            }
+            UIView.transition(with: self.currentLocationView,
+                              duration: 0.5,
+                              options: .transitionCrossDissolve,
+                              animations: {
+                                self.currentLocationView.isHidden = false
+                                self.currentLocationLabel.text = locationString
+                              },
+                              completion: nil)
         }
     }
     
@@ -63,11 +80,20 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         pin.coordinate = coordinate
         mapView.addAnnotation(pin)
     }
-
+    
+    // MARK: - View Actions
+    
+    @IBAction func openSettings(_ sender: UIBarButtonItem) {
+        let settingsURL = ModelConstants.settingsURL
+        if UIApplication.shared.canOpenURL(settingsURL) {
+            UIApplication.shared.open(settingsURL)
+        }
+    }
+    
     // MARK: - Bind to ViewModel Method
     
     func bindToViewModel() {
-        viewModel.bindViewModel(locationListener: { [weak self] location in self?.updateMapView(withLocation: location) },
+        viewModel.bindViewModel(locationListener: { [weak self] location in self?.updateLocationMap(withLocation: location) },
                                 locationStringListener: { [weak self] locationString in self?.updateLocationLabel(withLocationString: locationString) })
     }
     

@@ -11,12 +11,8 @@ extension UIApplication {
 
     static var keyWindow: UIWindow? { return shared.windows.first(where: { $0.isKeyWindow }) }
     
-    class func rootTabBarController() -> UITabBarController? {
-        let controller = keyWindow?.rootViewController
-        if let tabBarController = controller as? UITabBarController {
-            return tabBarController
-        }
-        return nil
+    class func currentTabBarController() -> UITabBarController? {
+        return currentViewController()?.tabBarController
     }
     
     class func currentNavigationController() -> UINavigationController? {

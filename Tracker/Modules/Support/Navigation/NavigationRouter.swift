@@ -11,7 +11,7 @@ class NavigationRouter {
     
     // MARK: - Properties
     
-    static var rootTabBarController: UITabBarController? { return UIApplication.rootTabBarController() }
+    static var rootTabBarController: UITabBarController? { return UIApplication.currentTabBarController() }
     static var currentNavigationController: UINavigationController? { return UIApplication.currentNavigationController() }
     static var currentViewController: UIViewController? { return UIApplication.currentViewController() }
     

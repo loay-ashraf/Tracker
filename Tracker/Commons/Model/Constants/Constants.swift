@@ -16,7 +16,7 @@ typealias ModelConstants = Constants.Model
 // View Shortcuts
 typealias ViewConstants = Constants.View
 typealias StoryboardConstants = ViewConstants.Storyboard
-typealias NavigayionBarConstants = ViewConstants.NavigationBar
+typealias NavigationBarConstants = ViewConstants.NavigationBar
 typealias AlertConstants = ViewConstants.Alert
 typealias NotificationConstants = ViewConstants.Notification
 typealias ErrorConstants = ViewConstants.Error
@@ -28,6 +28,7 @@ struct Constants {
     
     struct Model {
        
+        static let settingsURL = URL(string: UIApplication.openSettingsURLString)!
         
     }
     
@@ -74,9 +75,9 @@ struct Constants {
                 static let title = "Turn On Location Services".localized()
                 static let message = "Location Services are turned off. to turn on, go to 'Settings > Privacy > Location Services'".localized()
 
-                static func alertController() -> UIAlertController {
+                static func alertController(handler: (() -> Void)? = nil) -> UIAlertController {
                     let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
-                    controller.addAction(ViewConstants.Alert.okAction)
+                    controller.addAction(ViewConstants.Alert.okAction { action in handler?() })
                     return controller
                 }
 
@@ -85,11 +86,11 @@ struct Constants {
             struct LocationAccessDenied {
 
                 static let title = "Denied Location Access".localized()
-                static let message = "You've denied location access. to grant access, go to 'Settings > Privacy > Location Services > Tracker'".localized()
+                static let message = "You've denied location access. to grant access, go to 'Settings > Tracker > Location Services'.".localized()
 
-                static func alertController() -> UIAlertController {
+                static func alertController(handler: (() -> Void)? = nil) -> UIAlertController {
                     let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
-                    controller.addAction(ViewConstants.Alert.okAction)
+                    controller.addAction(ViewConstants.Alert.okAction { action in handler?() })
                     return controller
                 }
 
@@ -100,16 +101,42 @@ struct Constants {
                 static let title = "Restricted Location Access".localized()
                 static let message = "Location access is restricted.".localized()
 
-                static func alertController() -> UIAlertController {
+                static func alertController(handler: (() -> Void)? = nil) -> UIAlertController {
                     let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
-                    controller.addAction(ViewConstants.Alert.okAction)
+                    controller.addAction(ViewConstants.Alert.okAction { action in handler?() })
                     return controller
                 }
 
             }
             
-            static let okAction = UIAlertAction(title: "Ok".localized(), style: .cancel, handler: nil)
-            static let cancelAction = UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil)
+            struct NotificationsAccessDenied {
+
+                static let title = "Denied Notifications Access".localized()
+                static let message = "You've denied notifications access. to grant access, go to 'Settings > Tracker > Notifications'.".localized()
+
+                static func alertController(handler: (() -> Void)? = nil) -> UIAlertController {
+                    let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                    controller.addAction(ViewConstants.Alert.okAction { action in handler?() })
+                    return controller
+                }
+
+            }
+            
+            struct NotificationsAuthorizationError {
+
+                static let title = "Notifications Authorization Error".localized()
+                static let message = "An error occured while requesting notifications authorization, try again later.".localized()
+
+                static func alertController(handler: (() -> Void)? = nil) -> UIAlertController {
+                    let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                    controller.addAction(ViewConstants.Alert.okAction { action in handler?() })
+                    return controller
+                }
+
+            }
+            
+            static func okAction(handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertAction { return UIAlertAction(title: "Ok".localized(), style: .cancel, handler: handler) }
+            static func cancelAction(handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertAction { return UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: handler) }
             
         }
         
@@ -119,15 +146,13 @@ struct Constants {
             
             struct LocationChanged {
                 
-                static let title = "Tracker".localized()
-                static let subtitle = "New location entry".localized()
+                static let title = "New location entry".localized()
 
                 static func notificationRequest(body: String) -> UNNotificationRequest {
                     let content = UNMutableNotificationContent()
                     content.title = title
-                    content.subtitle = subtitle
                     content.body = body
-                    let request = UNNotificationRequest(identifier: "TrackerLocationChanged", content: content, trigger: nil)
+                    let request = UNNotificationRequest(identifier: "TrackerLocationUpdated", content: content, trigger: nil)
                     return request
                 }
 

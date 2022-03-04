@@ -15,7 +15,12 @@ class NotificationManager: NSObject {
     
     static let standard = NotificationManager()
     
-    private let manager = UNUserNotificationCenter.current()
+    private let center = UNUserNotificationCenter.current()
+    private var authorizationStatus: UNAuthorizationStatus {
+        get async {
+            return await center.notificationSettings().authorizationStatus
+        }
+    }
     
     // MARK: - Initialization
     
@@ -23,10 +28,19 @@ class NotificationManager: NSObject {
     
     // MARK: - Setup Method
     
-    func setup() {
-        manager.delegate = self
-        let authOptions = UNAuthorizationOptions.init(arrayLiteral: .alert, .badge, .sound)
-        manager.requestAuthorization(options: authOptions, completionHandler: { success,error in })
+    func setup() async throws {
+        center.delegate = self
+        guard await authorizationStatus != .denied else {
+            throw NotificationError.notificationAccessDenied
+        }
+        if await authorizationStatus == .notDetermined {
+            let authOptions = UNAuthorizationOptions(arrayLiteral: .alert, .badge, .sound)
+            do {
+                try await center.requestAuthorization(options: authOptions)
+            } catch {
+                throw NotificationError.notificationAuthorizationError(error)
+            }
+        }
     }
     
     // MARK: - Notification Methods
@@ -37,7 +51,7 @@ class NotificationManager: NSObject {
                 return
             }
             UIApplication.incrementAppBadgeNumber(byValue: 1)
-            self.manager.add(notification.request, withCompletionHandler: nil)
+            self.center.add(notification.request, withCompletionHandler: nil)
         }
     }
     
