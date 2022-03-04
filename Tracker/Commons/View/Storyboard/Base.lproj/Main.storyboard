@@ -1,19 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tgP-iO-wAH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cln-BI-2Uo">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Splash View Controller-->
+        <scene sceneID="oJP-9s-ljk">
+            <objects>
+                <viewController id="cln-BI-2Uo" customClass="SplashViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="egp-yM-5o3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="we7-jG-TWG">
+                                <rect key="frame" x="79" y="321" width="256" height="254.5"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="256" id="8Ir-05-36a"/>
+                                    <constraint firstAttribute="height" constant="256" id="Okh-yB-3z6"/>
+                                </constraints>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="eFh-VE-ppe">
+                                <rect key="frame" x="188.5" y="646" width="37" height="37"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ae6-i1-pZK"/>
+                        <color key="backgroundColor" name="AccentColor"/>
+                        <constraints>
+                            <constraint firstItem="eFh-VE-ppe" firstAttribute="top" secondItem="we7-jG-TWG" secondAttribute="bottom" constant="70" id="3b1-bS-WGd"/>
+                            <constraint firstItem="eFh-VE-ppe" firstAttribute="centerX" secondItem="egp-yM-5o3" secondAttribute="centerX" id="5XF-FL-HM9"/>
+                            <constraint firstItem="we7-jG-TWG" firstAttribute="centerY" secondItem="egp-yM-5o3" secondAttribute="centerY" id="UZf-mW-0WT"/>
+                            <constraint firstItem="we7-jG-TWG" firstAttribute="centerX" secondItem="egp-yM-5o3" secondAttribute="centerX" id="iAW-QD-gsu"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3L0-Dc-C2h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-762" y="63"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="uNX-fL-4OS">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="tgP-iO-wAH" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarVC" automaticallyAdjustsScrollViewInsets="NO" id="tgP-iO-wAH" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="f71-Wy-tCx">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -40,7 +76,7 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WIZ-1I-7h8">
                                 <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                             </mapView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="snL-ZR-O9i">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="snL-ZR-O9i">
                                 <rect key="frame" x="0.0" y="140" width="414" height="99"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="oEh-1X-4kZ">
@@ -82,7 +118,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" largeTitleDisplayMode="always" id="kE0-eT-nII">
-                        <barButtonItem key="rightBarButtonItem" image="gearshape" catalog="system" id="CFq-aq-0mR"/>
+                        <barButtonItem key="rightBarButtonItem" image="gearshape" catalog="system" id="CFq-aq-0mR">
+                            <connections>
+                                <action selector="openSettings:" destination="BYZ-38-t0r" id="JLZ-mC-ECm"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="currentLocationLabel" destination="mK0-cM-ELS" id="5AX-hH-vA5"/>
@@ -172,6 +212,10 @@
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="location.fill" catalog="system" width="128" height="121"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.0" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

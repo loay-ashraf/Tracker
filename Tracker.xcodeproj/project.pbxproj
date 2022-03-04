@@ -13,8 +13,13 @@
 		C6150E3927CF8FB0002DCCC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6150E3727CF8FB0002DCCC7 /* Main.storyboard */; };
 		C6150E3B27CF8FB2002DCCC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6150E3A27CF8FB2002DCCC7 /* Assets.xcassets */; };
 		C6150E3E27CF8FB2002DCCC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6150E3C27CF8FB2002DCCC7 /* LaunchScreen.storyboard */; };
+		C69C741327D1ED040011EA8A /* LocationTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69C741227D1ED040011EA8A /* LocationTypes.swift */; };
+		C69C741527D1ED5A0011EA8A /* NotificationTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69C741427D1ED5A0011EA8A /* NotificationTypes.swift */; };
 		C6D87B8227CFDEF00027880C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D87B8127CFDEF00027880C /* LocationManager.swift */; };
 		C6D87B8527D008020027880C /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D87B8427D008020027880C /* NotificationManager.swift */; };
+		C6D898DC27D0A6990005353D /* HomeLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D898DB27D0A6990005353D /* HomeLogicController.swift */; };
+		C6D898DE27D0A8120005353D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D898DD27D0A8120005353D /* HomeViewModel.swift */; };
+		C6D898E127D0E0ED0005353D /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D898E027D0E0ED0005353D /* SplashViewController.swift */; };
 		C6DCBCD927CF954100AE991B /* DataPersistenceCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DCBC4D27CF954000AE991B /* DataPersistenceCollectionViewModel.swift */; };
 		C6DCBCDA27CF954100AE991B /* DataPersistenceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DCBC4F27CF954000AE991B /* DataPersistenceViewModel.swift */; };
 		C6DCBCDC27CF954100AE991B /* CellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DCBC5127CF954000AE991B /* CellViewModel.swift */; };
@@ -85,8 +90,13 @@
 		C6150E3827CF8FB0002DCCC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C6150E3A27CF8FB2002DCCC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6150E3D27CF8FB2002DCCC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C69C741227D1ED040011EA8A /* LocationTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTypes.swift; sourceTree = "<group>"; };
+		C69C741427D1ED5A0011EA8A /* NotificationTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTypes.swift; sourceTree = "<group>"; };
 		C6D87B8127CFDEF00027880C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		C6D87B8427D008020027880C /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		C6D898DB27D0A6990005353D /* HomeLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLogicController.swift; sourceTree = "<group>"; };
+		C6D898DD27D0A8120005353D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		C6D898E027D0E0ED0005353D /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		C6DCBC4D27CF954000AE991B /* DataPersistenceCollectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPersistenceCollectionViewModel.swift; sourceTree = "<group>"; };
 		C6DCBC4F27CF954000AE991B /* DataPersistenceViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPersistenceViewModel.swift; sourceTree = "<group>"; };
 		C6DCBC5127CF954000AE991B /* CellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellViewModel.swift; sourceTree = "<group>"; };
@@ -163,7 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				C613108427CF9DDF00245A04 /* Model */,
-				C613108527CF9DE400245A04 /* View */,
 				C613108727CF9DF000245A04 /* View Controller */,
 				C613108627CF9DEA00245A04 /* View Model */,
 			);
@@ -173,20 +182,15 @@
 		C613108427CF9DDF00245A04 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C6D898DB27D0A6990005353D /* HomeLogicController.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		C613108527CF9DE400245A04 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		C613108627CF9DEA00245A04 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				C6D898DD27D0A8120005353D /* HomeViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -221,6 +225,7 @@
 				C6DCBD2D27CF954900AE991B /* Commons */,
 				C6150E4527CF913B002DCCC7 /* Modules */,
 				C6150E4827CF9156002DCCC7 /* Resources */,
+				C69C741627D1F28D0011EA8A /* Services */,
 			);
 			path = Tracker;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 			children = (
 				C6150E4727CF9148002DCCC7 /* App */,
 				C613108327CF9DCF00245A04 /* Home */,
+				C6D898DF27D0E0D80005353D /* Splash */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -261,10 +267,20 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		C69C741627D1F28D0011EA8A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C6D87B8027CFDEDA0027880C /* Location */,
+				C6D87B8327D007E70027880C /* Notification */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		C6D87B8027CFDEDA0027880C /* Location */ = {
 			isa = PBXGroup;
 			children = (
 				C6D87B8127CFDEF00027880C /* LocationManager.swift */,
+				C69C741227D1ED040011EA8A /* LocationTypes.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -273,8 +289,17 @@
 			isa = PBXGroup;
 			children = (
 				C6D87B8427D008020027880C /* NotificationManager.swift */,
+				C69C741427D1ED5A0011EA8A /* NotificationTypes.swift */,
 			);
 			path = Notification;
+			sourceTree = "<group>";
+		};
+		C6D898DF27D0E0D80005353D /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				C6D898E027D0E0ED0005353D /* SplashViewController.swift */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		C6DCBC4827CF954000AE991B /* View Model */ = {
@@ -633,8 +658,6 @@
 		C6DCBD3927CF9A9600AE991B /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				C6D87B8327D007E70027880C /* Notification */,
-				C6D87B8027CFDEDA0027880C /* Location */,
 				C6DCBD3227CF9A9300AE991B /* Alert */,
 				C6DCBD3027CF9A9300AE991B /* Navigation */,
 				C6DCBD2E27CF9A9300AE991B /* URL */,
@@ -736,6 +759,7 @@
 				C6DCBCDF27CF954100AE991B /* ModelProtocols.swift in Sources */,
 				C6DCBCF827CF954100AE991B /* CollectionViewCell.swift in Sources */,
 				C6DCBD1027CF954100AE991B /* DPSFDynamicCollectionView.swift in Sources */,
+				C69C741327D1ED040011EA8A /* LocationTypes.swift in Sources */,
 				C6DCBCDC27CF954100AE991B /* CellViewModel.swift in Sources */,
 				C6D87B8227CFDEF00027880C /* LocationManager.swift in Sources */,
 				C6DCBCEC27CF954100AE991B /* DataTypes.swift in Sources */,
@@ -743,6 +767,7 @@
 				C6DCBD0227CF954100AE991B /* TableViewCell.swift in Sources */,
 				C6DCBCEA27CF954100AE991B /* RealmPersistenceProvider.swift in Sources */,
 				C6DCBCE527CF954100AE991B /* FoundationTypes.swift in Sources */,
+				C6D898E127D0E0ED0005353D /* SplashViewController.swift in Sources */,
 				C6150E3227CF8FB0002DCCC7 /* AppDelegate.swift in Sources */,
 				C6DCBCF627CF954100AE991B /* CollectionViewTapResponder.swift in Sources */,
 				C6DCBCF427CF954100AE991B /* CollectionViewCellConfigurator.swift in Sources */,
@@ -759,10 +784,13 @@
 				C6DCBD3827CF9A9300AE991B /* AlertTypes.swift in Sources */,
 				C6DCBD3627CF9A9300AE991B /* NavigationRouter.swift in Sources */,
 				C6DCBD3527CF9A9300AE991B /* URLHelper.swift in Sources */,
+				C69C741527D1ED5A0011EA8A /* NotificationTypes.swift in Sources */,
 				C6DCBD2727CF954100AE991B /* FooterErrorView.swift in Sources */,
 				C6DCBCFF27CF954100AE991B /* TableViewSwipeResponder.swift in Sources */,
 				C6DCBD0827CF954100AE991B /* UIKitExtensions.swift in Sources */,
 				C6150E3427CF8FB0002DCCC7 /* SceneDelegate.swift in Sources */,
+				C6D898DE27D0A8120005353D /* HomeViewModel.swift in Sources */,
+				C6D898DC27D0A6990005353D /* HomeLogicController.swift in Sources */,
 				C6DCBCF727CF954100AE991B /* CollectionView.swift in Sources */,
 				C6DCBCF527CF954100AE991B /* CollectionViewDelegate.swift in Sources */,
 				C6DCBD1F27CF954100AE991B /* DPSFView.swift in Sources */,

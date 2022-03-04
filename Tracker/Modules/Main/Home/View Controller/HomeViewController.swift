@@ -10,47 +10,64 @@ import MapKit
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate {
 
-    let locationManager = LocationManager.standard
-    let notificationManager = NotificationManager.standard
+    // MARK: - Properties
+    
+    let viewModel = HomeViewModel()
+    
+    // MARK: - View Outlets
     
     @IBOutlet weak var currentLocationView: UIView!
     @IBOutlet weak var currentLocationLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        locationManager.setup()
-        notificationManager.setup()
-        locationManager.bindLocation { [weak self] location in
-            self?.updateView(withLocation: location)
-        }
-        locationManager.startUpdate()
-    }
+    // MARK: - View Helper Methods
     
     func configureView() {
+        NavigationBarConstants.configureAppearance(for: navigationController?.navigationBar)
         currentLocationView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.85)
+        bindToViewModel()
     }
     
-    @MainActor func updateView(withLocation location: CLLocation?) {
-        guard let location = location else {
-            return
-        }
-        renderLocationOnMap(location)
-        Task {
-            let locationString = await resolveLocationGeocode(location)
-            self.currentLocationLabel.text = locationString
-            self.notificationManager.sendNotification(notification: .locationChanged(locationString))
+    func updateLocationMap(withLocation location: CLLocation?) {
+        DispatchQueue.main.async {
+            guard let location = location else {
+                return
+            }
+            self.renderLocationOnMap(location)
         }
     }
     
-}
-
-extension HomeViewController {
+    func updateLocationLabel(withLocationString locationString: String?) {
+        DispatchQueue.main.async {
+            guard let locationString = locationString else {
+                UIView.transition(with: self.currentLocationView,
+                                  duration: 0.5,
+                                  options: .transitionCrossDissolve,
+                                  animations: {
+                                    self.currentLocationView.isHidden = true
+                                    self.currentLocationLabel.text = ""
+                                  },
+                                  completion: nil)
+                    
+                return
+            }
+            UIView.transition(with: self.currentLocationView,
+                              duration: 0.5,
+                              options: .transitionCrossDissolve,
+                              animations: {
+                                self.currentLocationView.isHidden = false
+                                self.currentLocationLabel.text = locationString
+                              },
+                              completion: nil)
+        }
+    }
     
     func renderLocationOnMap(_ location: CLLocation) {
         let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude,
@@ -64,23 +81,20 @@ extension HomeViewController {
         mapView.addAnnotation(pin)
     }
     
-    func resolveLocationGeocode(_ location: CLLocation) async -> String {
-        let geocoder = CLGeocoder()
-        return await withUnsafeContinuation { continuation in
-            geocoder.reverseGeocodeLocation(location, preferredLocale: .current) { placemarks, error in
-                var locationString = String()
-                guard let place = placemarks?.first, error == nil else {
-                    return
-                }
-                if let locality = place.locality {
-                    locationString.append(contentsOf: locality)
-                }
-                if let adminRegion = place.administrativeArea {
-                    locationString.append(contentsOf: ", \(adminRegion)")
-                }
-                continuation.resume(returning: locationString)
-            }
+    // MARK: - View Actions
+    
+    @IBAction func openSettings(_ sender: UIBarButtonItem) {
+        let settingsURL = ModelConstants.settingsURL
+        if UIApplication.shared.canOpenURL(settingsURL) {
+            UIApplication.shared.open(settingsURL)
         }
+    }
+    
+    // MARK: - Bind to ViewModel Method
+    
+    func bindToViewModel() {
+        viewModel.bindViewModel(locationListener: { [weak self] location in self?.updateLocationMap(withLocation: location) },
+                                locationStringListener: { [weak self] locationString in self?.updateLocationLabel(withLocationString: locationString) })
     }
     
 }
