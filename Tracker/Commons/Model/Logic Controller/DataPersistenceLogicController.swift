@@ -10,7 +10,7 @@ import Foundation
 protocol DataPersistenceLogicController: AnyObject {
     
     associatedtype DataPersistenceManagerType: DataPersistenceManager
-    associatedtype ModelType: Model
+    associatedtype ModelType
     
     var dataPersistenceManager: DataPersistenceManagerType { get }
     var model: Observable<Array<ModelType>> { get set }

@@ -13,7 +13,7 @@ class RealmPersistenceProvider: DataPersistenceProvider {
     // MARK: - Properties
 
     var realm: Realm { return try! Realm() }
-
+    
     // MARK: - Write Methods
 
     func insert<T: Object>(_ newObject: T) throws {
@@ -65,6 +65,13 @@ class RealmPersistenceProvider: DataPersistenceProvider {
         } catch  {
             throw RealmError.deleting(error)
         }
+    }
+    
+    // MARK: - Bind Methods
+    
+    func bindToCollection<T: Object>(_ listener: @escaping (RealmCollectionChange<Results<T>>) -> Void) -> NotificationToken {
+        let results = realm.objects(T.self)
+        return results.observe(listener)
     }
     
 }

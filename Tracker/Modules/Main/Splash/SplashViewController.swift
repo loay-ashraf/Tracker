@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class SplashViewController: UIViewController {
 
@@ -38,6 +39,20 @@ class SplashViewController: UIViewController {
             AlertHelper.showAlert(alert: alert)
         } catch { }
         setupLocationNotifications()
+        setupLocationEntry()
+        DataManager.standard.setup(completionHandler: { error in
+            try? DataManager.standard.loadData()
+        })
+    }
+    
+    private func setupLocationEntry() {
+        locationManager.bindLocation { location in
+            guard let location = location else { return }
+            Task {
+                let historyModel = await HistoryModel(from: location)
+                try? HistoryManager.standard.add(entry: historyModel)
+            }
+        }
     }
     
     private func setupLocationNotifications() {
@@ -55,6 +70,27 @@ class SplashViewController: UIViewController {
             let tabBarController = storyBoard.instantiateViewController(identifier: "tabBarVC")
             tabBarController.modalPresentationStyle = .fullScreen
             NavigationRouter.present(viewController: tabBarController)
+        }
+    }
+    
+    // MARK: - Geocode Reverse Method
+    
+    func reverseGeocode(_ location: CLLocation) async -> String {
+        return await withUnsafeContinuation { continuation in
+            let geocoder = CLGeocoder()
+            geocoder.reverseGeocodeLocation(location, preferredLocale: .current) { placemarks, error in
+                var locationString = String()
+                guard let place = placemarks?.first, error == nil else {
+                    return
+                }
+                if let locality = place.locality {
+                    locationString.append(contentsOf: locality)
+                }
+                if let adminRegion = place.administrativeArea {
+                    locationString.append(contentsOf: ", \(adminRegion)")
+                }
+                continuation.resume(returning: locationString)
+            }
         }
     }
 

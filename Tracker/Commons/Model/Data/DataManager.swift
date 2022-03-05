@@ -34,30 +34,16 @@ class DataManager {
     
     // MARK: - Save and Load Methods
     
-    func saveData() throws {
-//        do {
-//            try BookmarksManager.standard.save()
-//            try SearchHistoryManager.standard.save()
-//        } catch {
-//            if let error = error as? RealmError {
-//                throw DataError.realm(error)
-//            } else if let error = error as? FileManagerError {
-//                throw DataError.fileManager(error)
-//            }
-//        }
-    }
+    func saveData() throws { }
     
     func loadData() throws {
-//        do {
-//            try BookmarksManager.standard.load()
-//            try SearchHistoryManager.standard.load()
-//        } catch {
-//            if let error = error as? RealmError {
-//                throw DataError.realm(error)
-//            } else if let error = error as? FileManagerError {
-//                throw DataError.fileManager(error)
-//            }
-//        }
+        do {
+            try HistoryManager.standard.load()
+        } catch {
+            if let error = error as? RealmError {
+                throw DataError.realm(error)
+            }
+        }
     }
     
     // MARK: - Clear Methods
