@@ -27,7 +27,7 @@ class DataManager {
     
     // MARK: Setup Methods
     
-    func setup(completionHandler: @escaping ((DataError?) -> Void)) {
+    func setup() throws {
         isSetup = true
         userDefaultsPersistenceProvider.setup()
     }

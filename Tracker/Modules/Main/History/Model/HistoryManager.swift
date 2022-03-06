@@ -44,11 +44,12 @@ class HistoryManager: DataPersistenceManager {
 
     @MainActor func add(entry: HistoryModel) throws {
         let locationToAdd = Location(form: entry)
+        guard locationToAdd.xDescription != locations.value?.last?.xDescription else { return }
         try dataPersistenceProvider.insert(locationToAdd)
     }
 
     @MainActor func delete(entry: HistoryModel) throws {
-        guard let locationToDelete = locations.value?.filter({ return $0.description == entry.description &&
+        guard let locationToDelete = locations.value?.filter({ return $0.xDescription == entry.description &&
                                                                       $0.date == entry.date &&
                                                                       $0.latitude == entry.latitude &&
                                                                       $0.longitude == entry.longitude

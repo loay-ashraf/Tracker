@@ -7,12 +7,13 @@
 
 import UIKit
 
-class HistoryDataSource: CollectionViewDataSource<HistoryCellViewModel> {
+class HistoryDataSource: TableViewDataSource<HistoryCellViewModel> {
     
-    override init() {
+    init(_ viewController: UIViewController) {
         super.init()
         cellClass = HistoryCell.self
         cellConfigurator = HistoryCellConfigurator()
+        editResponder = HistoryEditResponder(viewController)
     }
     
 }

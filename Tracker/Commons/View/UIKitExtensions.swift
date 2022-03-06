@@ -144,6 +144,11 @@ extension UIColor {
         set { layer.masksToBounds = newValue }
     }
     
+    var shadowPath: CGPath? {
+        get { return layer.shadowPath }
+        set { layer.shadowPath = newValue }
+    }
+    
     @IBInspectable var shadowRadius: CGFloat {
         get { return layer.shadowRadius }
         set { layer.shadowRadius = newValue }

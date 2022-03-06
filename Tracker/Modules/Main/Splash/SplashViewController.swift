@@ -12,6 +12,7 @@ class SplashViewController: UIViewController {
 
     // MARK: - Properties
     
+    let dataManager = DataManager.standard
     let locationManager = LocationManager.standard
     let notificationManager = NotificationManager.standard
     
@@ -27,6 +28,8 @@ class SplashViewController: UIViewController {
     // MARK: - Setup Methods
     
     @MainActor private func setup() async {
+        try? dataManager.setup()
+        try? dataManager.loadData()
         do {
             try locationManager.setup()
             try await notificationManager.setup()
@@ -40,9 +43,13 @@ class SplashViewController: UIViewController {
         } catch { }
         setupLocationNotifications()
         setupLocationEntry()
-        DataManager.standard.setup(completionHandler: { error in
-            try? DataManager.standard.loadData()
-        })
+    }
+    
+    private func setupLocationNotifications() {
+        locationManager.bindLocationString { [weak self] locationString in
+            guard let locationString = locationString else { return }
+            self?.notificationManager.sendNotification(notification: .locationUpdated(locationString))
+        }
     }
     
     private func setupLocationEntry() {
@@ -52,13 +59,6 @@ class SplashViewController: UIViewController {
                 let historyModel = await HistoryModel(from: location)
                 try? HistoryManager.standard.add(entry: historyModel)
             }
-        }
-    }
-    
-    private func setupLocationNotifications() {
-        locationManager.bindLocationString { [weak self] locationString in
-            guard let locationString = locationString else { return }
-            self?.notificationManager.sendNotification(notification: .locationUpdated(locationString))
         }
     }
     

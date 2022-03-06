@@ -38,6 +38,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        let currenTabBarController = UIApplication.currentTabBarController()
+        let notificationManager = NotificationManager.standard
+        if currenTabBarController?.selectedIndex == 1 {
+            notificationManager.resetNotificationBadge()
+        }
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {

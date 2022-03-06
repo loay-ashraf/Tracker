@@ -68,7 +68,6 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
     // MARK: - Notification Center Delegate
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        resetNotificationBadge()
         NavigationRouter.showTab(withIndex: 1)
     }
     

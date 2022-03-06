@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class HistoryViewModel: DataPersistenceCollectionViewModel {
+final class HistoryViewModel: DataPersistenceTableViewModel {
 
     // MARK: - Properties
     
@@ -54,7 +54,7 @@ final class HistoryViewModel: DataPersistenceCollectionViewModel {
     func bindToModel() {
         logicController.bind { [weak self] locationsArray in
             if let locationsArray = locationsArray {
-                self?.cellViewModelArray = locationsArray.map { return HistoryCellViewModel(from: $0) }
+                self?.cellViewModelArray = locationsArray.map { return HistoryCellViewModel(from: $0) }.reversed()
             }
         }
     }
