@@ -51,7 +51,6 @@ class HistoryViewController: DPSFDynamicTableViewController<HistoryViewModel> {
     
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
-        xTableView.setEditing(editing, animated: animated)
         if editing {
             editButton?.title = "Done"
         } else {
@@ -70,9 +69,9 @@ class HistoryViewController: DPSFDynamicTableViewController<HistoryViewModel> {
     }
     
     func showDetail(atRow row: Int) {
-//        let cellViewModelItem = viewModel.cellViewModelArray[row]
-//        let detailVC = UserDetailViewController.instatiate(tableCellViewModel: cellViewModelItem)
-//        NavigationRouter.push(viewController: detailVC)
+        let cellViewModelItem = viewModel.cellViewModelArray[row]
+        let detailVC = HistoryDetailViewController.instatiate(cellViewModel: cellViewModelItem)
+        NavigationRouter.push(viewController: detailVC)
     }
     
     func deleteEntry(atRow row: Int) {

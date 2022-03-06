@@ -13,7 +13,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     // MARK: - Properties
     
     let viewModel = HomeViewModel()
-    
+
     // MARK: - View Outlets
     
     @IBOutlet weak var currentLocationView: UIView!
@@ -87,6 +87,15 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         let settingsURL = ModelConstants.settingsURL
         if UIApplication.shared.canOpenURL(settingsURL) {
             UIApplication.shared.open(settingsURL)
+        }
+    }
+    
+    @IBAction func share(_ sender: UIBarButtonItem) {
+        guard let latitude = viewModel.location.value?.coordinate.latitude, let longitude = viewModel.location.value?.coordinate.longitude else {
+            return
+        }
+        if let url = URL(string: "https://maps.apple.com?ll=\(latitude),\(longitude)") {
+            URLHelper.shareWebsite(url)
         }
     }
     

@@ -28,6 +28,7 @@
 		C674086D27D4F445001F3F01 /* TableViewEditResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674086C27D4F445001F3F01 /* TableViewEditResponder.swift */; };
 		C674086F27D4F479001F3F01 /* HistoryTapResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674086E27D4F479001F3F01 /* HistoryTapResponder.swift */; };
 		C674087127D4F488001F3F01 /* HistoryEditResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674087027D4F488001F3F01 /* HistoryEditResponder.swift */; };
+		C674087327D50376001F3F01 /* HistoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674087227D50376001F3F01 /* HistoryDetailViewController.swift */; };
 		C69C741327D1ED040011EA8A /* LocationTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69C741227D1ED040011EA8A /* LocationTypes.swift */; };
 		C69C741527D1ED5A0011EA8A /* NotificationTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69C741427D1ED5A0011EA8A /* NotificationTypes.swift */; };
 		C6D87B8227CFDEF00027880C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D87B8127CFDEF00027880C /* LocationManager.swift */; };
@@ -125,6 +126,7 @@
 		C674086C27D4F445001F3F01 /* TableViewEditResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewEditResponder.swift; sourceTree = "<group>"; };
 		C674086E27D4F479001F3F01 /* HistoryTapResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTapResponder.swift; sourceTree = "<group>"; };
 		C674087027D4F488001F3F01 /* HistoryEditResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryEditResponder.swift; sourceTree = "<group>"; };
+		C674087227D50376001F3F01 /* HistoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailViewController.swift; sourceTree = "<group>"; };
 		C69C741227D1ED040011EA8A /* LocationTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTypes.swift; sourceTree = "<group>"; };
 		C69C741427D1ED5A0011EA8A /* NotificationTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTypes.swift; sourceTree = "<group>"; };
 		C6D87B8127CFDEF00027880C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				C621F8A127D374D1004B2169 /* HistoryViewController.swift */,
+				C674087227D50376001F3F01 /* HistoryDetailViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -1034,6 +1037,7 @@
 				C6DCBCF327CF954100AE991B /* CollectionViewDataSource.swift in Sources */,
 				C6FD87BC27D47638006073F0 /* DataPersistenceTableViewModel.swift in Sources */,
 				C6DCBD2927CF954100AE991B /* ErrorViewTypes.swift in Sources */,
+				C674087327D50376001F3F01 /* HistoryDetailViewController.swift in Sources */,
 				C6DCBCE027CF954100AE991B /* Constants.swift in Sources */,
 				C621F8A227D374D1004B2169 /* HistoryViewController.swift in Sources */,
 				C6DCBD0F27CF954100AE991B /* DPSFDynamicCollectionViewController.swift in Sources */,
