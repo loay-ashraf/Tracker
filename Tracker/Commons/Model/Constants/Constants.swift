@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import NotificationBannerSwift
 import Network
 
 // MARK: - Constants Shortcuts
@@ -161,7 +162,7 @@ struct Constants {
         
         struct Notification {
             
-            struct LocationChanged {
+            struct LocationUpdated {
                 
                 static let title = "New location entry".localized()
 
@@ -171,6 +172,20 @@ struct Constants {
                     content.body = body
                     let request = UNNotificationRequest(identifier: "TrackerLocationUpdated", content: content, trigger: nil)
                     return request
+                }
+
+            }
+            
+            struct LocationUpdatedBanner {
+
+                static let title = "New Location entry".localized()
+
+                static func notificationBanner(subtitle: String) -> FloatingNotificationBanner {
+                    let banner = FloatingNotificationBanner(title: title, subtitle: subtitle, style: .info)
+                    banner.autoDismiss = true
+                    banner.dismissOnTap = true
+                    banner.dismissOnSwipeUp = true
+                    return banner
                 }
 
             }

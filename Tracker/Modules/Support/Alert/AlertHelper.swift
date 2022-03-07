@@ -6,13 +6,11 @@
 //
 
 import UIKit
-//import NotificationBannerSwift
 
 class AlertHelper {
     
     // MARK: - Properties
     
-    //static var presentedStatusBarBanner: StatusBarNotificationBanner!
     static var presentedAlertController: UIAlertController!
     
     // MARK: - Initialization
@@ -20,12 +18,6 @@ class AlertHelper {
     private init() { }
     
     // MARK: - Show Methods
-    
-//    class func showStatusBarBanner(alert: Alert) {
-//        let statusBarBanner = alert.statusBarBanner
-//        presentedStatusBarBanner = statusBarBanner
-//        statusBarBanner.show()
-//    }
     
     class func showAlert(title: String, message: String, style: UIAlertController.Style, actions: [UIAlertAction]) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
@@ -54,11 +46,6 @@ class AlertHelper {
     }
     
     // MARK: - Dismiss Methods
-    
-//    class func dismissStatusBarBanner() {
-//        presentedStatusBarBanner?.dismiss()
-//        presentedStatusBarBanner = nil
-//    }
     
     class func dismissAlert() {
         presentedAlertController?.dismiss(animated: true, completion: nil)

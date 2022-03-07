@@ -47,11 +47,14 @@ class NotificationManager: NSObject {
     
     func sendNotification(notification: Notification) {
         DispatchQueue.main.async {
-            guard UIApplication.shared.applicationState == .background else {
-                return
+            if UIApplication.shared.applicationState == .background {
+                UIApplication.incrementAppBadgeNumber(byValue: 1)
+                self.center.add(notification.request, withCompletionHandler: nil)
+            } else if UIApplication.shared.applicationState == .active, UIApplication.currentTabBarController()?.selectedIndex == 1 {
+                notification.banner.show(cornerRadius: 10,
+                                         shadowBlurRadius: 16,
+                                         shadowEdgeInsets: UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10))
             }
-            UIApplication.incrementAppBadgeNumber(byValue: 1)
-            self.center.add(notification.request, withCompletionHandler: nil)
         }
     }
     

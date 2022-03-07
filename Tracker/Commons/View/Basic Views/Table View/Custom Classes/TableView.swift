@@ -57,12 +57,14 @@ class TableView: UITableView {
     
     // MARK: - Reload Data Method
     
-    override func reloadData() {
-        UIView.transition(with: self,
-                          duration: 0.5,
-                          options: [.transitionCrossDissolve, .allowAnimatedContent],
-                          animations: { super.reloadData() },
-                          completion: nil)
+    func reloadData(withAnimation animation: UITableView.RowAnimation) {
+        guard window != nil else {
+            reloadData()
+            return
+        }
+        let range = NSMakeRange(0, numberOfSections)
+        let sections = NSIndexSet(indexesIn: range)
+        reloadSections(sections as IndexSet, with: animation)
     }
     
 }

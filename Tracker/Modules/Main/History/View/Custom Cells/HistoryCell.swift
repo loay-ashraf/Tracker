@@ -24,19 +24,16 @@ class HistoryCell: TableViewCell, InterfaceBuilderTableViewCell {
     @IBOutlet weak var longitudeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
-    // MARK: - View Methods
+    // MARK: - Lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // add dummy gesture recognizer to block delegate from responding to touches between cells
-        let xTapGestureRecognizer = UITapGestureRecognizer(target: self, action: nil)
-        xTapGestureRecognizer.delegate = self
-        addGestureRecognizer(xTapGestureRecognizer)
-        // add gesture recognizer to animate cell selection
-        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: nil)
-        tapGestureRecognizer.delegate = self
-        containerView.addGestureRecognizer(tapGestureRecognizer)
-        containerView.shadowPath = UIBezierPath(rect: containerView.bounds).cgPath
+        configureGestures()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        configureShadowPath()
     }
 
     override func prepareForReuse() {
@@ -46,6 +43,30 @@ class HistoryCell: TableViewCell, InterfaceBuilderTableViewCell {
         longitudeLabel.text = nil
         dateLabel.text = nil
     }
+    
+    // MARK: - View Helper Methods
+    
+    func configureGestures() {
+        // add dummy gesture recognizer to block delegate from responding to touches between cells
+        let xTapGestureRecognizer = UITapGestureRecognizer(target: self, action: nil)
+        xTapGestureRecognizer.delegate = self
+        addGestureRecognizer(xTapGestureRecognizer)
+        // add gesture recognizer to animate cell selection
+        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: nil)
+        tapGestureRecognizer.delegate = self
+        containerView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    func configureShadowPath() {
+        // Guard check to avoid IBDesignable agent crash
+        guard let containerView = containerView else { return }
+        let radius = containerView.cornerRadius
+        containerView.shadowPath = UIBezierPath(roundedRect: containerView.bounds, cornerRadius: radius).cgPath
+        containerView.shouldRasterize = true
+        containerView.rasterizationScale = UIScreen.main.scale
+    }
+    
+    // MARK: - View Actions
     
     func containerViewTapped() {
         let originalColor = containerView.backgroundColor

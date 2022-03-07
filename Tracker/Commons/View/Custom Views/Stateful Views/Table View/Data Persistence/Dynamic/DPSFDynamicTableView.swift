@@ -44,8 +44,9 @@ class DPSFDynamicTableView: TableView, DPStatefulView {
     func render(_ viewState: ViewState) {
         state = viewState
         switch viewState {
-        case .presenting: reloadData()
-        case .empty(let emptyContext): showEmpty(for: emptyContext)
+        case .presenting: reloadData(withAnimation: .automatic)
+        case .empty(let emptyContext): reloadData(withAnimation: .none)
+                                       showEmpty(for: emptyContext)
         default: break
         }
     }
