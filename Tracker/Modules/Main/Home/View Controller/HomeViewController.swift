@@ -13,7 +13,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     // MARK: - Properties
     
     let viewModel = HomeViewModel()
-    
+
     // MARK: - View Outlets
     
     @IBOutlet weak var currentLocationView: UIView!
@@ -72,13 +72,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     func renderLocationOnMap(_ location: CLLocation) {
         let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude,
                                                 longitude: location.coordinate.longitude)
-        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         let region = MKCoordinateRegion(center: coordinate, span: span)
         mapView.setRegion(region, animated: true)
-
-        let pin = MKPointAnnotation()
-        pin.coordinate = coordinate
-        mapView.addAnnotation(pin)
     }
     
     // MARK: - View Actions
@@ -87,6 +83,15 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         let settingsURL = ModelConstants.settingsURL
         if UIApplication.shared.canOpenURL(settingsURL) {
             UIApplication.shared.open(settingsURL)
+        }
+    }
+    
+    @IBAction func share(_ sender: UIBarButtonItem) {
+        guard let latitude = viewModel.location.value?.coordinate.latitude, let longitude = viewModel.location.value?.coordinate.longitude else {
+            return
+        }
+        if let url = URL(string: "https://maps.apple.com?ll=\(latitude),\(longitude)") {
+            URLHelper.shareWebsite(url)
         }
     }
     

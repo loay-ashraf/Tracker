@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TableViewDataSource<T: TableCellViewModel>: NSObject, UITableViewDataSource {
+class TableViewDataSource<T: CellViewModel>: NSObject, UITableViewDataSource {
     
     // MARK: - Properties
     
@@ -15,7 +15,7 @@ class TableViewDataSource<T: TableCellViewModel>: NSObject, UITableViewDataSourc
     var cellViewModels = Array<T>()
     var cellClass: TableViewCell.Type?
     var cellConfigurator: TableViewCellConfigurator?
-    var swipeResponder: TableViewSwipeResponder?
+    var editResponder: TableViewEditResponder?
     
     // MARK: - Cell Registeration Methods
     
@@ -50,17 +50,7 @@ class TableViewDataSource<T: TableCellViewModel>: NSObject, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        swipeResponder?.respondToSwipe(editingStyle: editingStyle, atRow: indexPath.row)
+        editResponder?.respondToEdit(editingStyle: editingStyle, atRow: indexPath.row)
     }
     
 }
-
-//class SKTableViewDataSource<T: TableCellViewModel>: TableViewDataSource<T>, SkeletonTableViewDataSource {
-//
-//    // MARK: - Data Source
-//
-//    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-//        return cellClass?.reuseIdentifier ?? "TableViewCell"
-//    }
-//
-//}

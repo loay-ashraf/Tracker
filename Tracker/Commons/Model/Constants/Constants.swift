@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import NotificationBannerSwift
 import Network
 
 // MARK: - Constants Shortcuts
@@ -135,6 +136,23 @@ struct Constants {
 
             }
             
+            struct ClearHistory {
+
+                static let title = "Clear Location History?".localized()
+                static let message = "You're about to erase your location history, this action can't be undone, proceed?".localized()
+                static let clearActionTitle = "Clear".localized()
+
+                static func alertController(primaryHandler: @escaping () -> Void, secondaryHandler: (() -> Void)? = nil) -> UIAlertController {
+                    let controller = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+                    controller.addAction(UIAlertAction(title: clearActionTitle, style: .destructive, handler: { action in
+                        primaryHandler()
+                    }))
+                    controller.addAction(ViewConstants.Alert.cancelAction { action in secondaryHandler?() })
+                    return controller
+                }
+
+            }
+            
             static func okAction(handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertAction { return UIAlertAction(title: "Ok".localized(), style: .cancel, handler: handler) }
             static func cancelAction(handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertAction { return UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: handler) }
             
@@ -144,7 +162,7 @@ struct Constants {
         
         struct Notification {
             
-            struct LocationChanged {
+            struct LocationUpdated {
                 
                 static let title = "New location entry".localized()
 
@@ -154,6 +172,20 @@ struct Constants {
                     content.body = body
                     let request = UNNotificationRequest(identifier: "TrackerLocationUpdated", content: content, trigger: nil)
                     return request
+                }
+
+            }
+            
+            struct LocationUpdatedBanner {
+
+                static let title = "New Location entry".localized()
+
+                static func notificationBanner(subtitle: String) -> FloatingNotificationBanner {
+                    let banner = FloatingNotificationBanner(title: title, subtitle: subtitle, style: .info)
+                    banner.autoDismiss = true
+                    banner.dismissOnTap = true
+                    banner.dismissOnSwipeUp = true
+                    return banner
                 }
 
             }
@@ -185,6 +217,15 @@ struct Constants {
                 
                 static private let image = UIImage(systemName: "exclamationmark")
                 static private let title = "WoW, such empty".localized()
+                static let viewModel = EmptyViewModel(image: image, title: title)
+                
+            }
+            
+            // General empty image and title
+            struct History {
+                
+                static private let image = UIImage(named: "Empty Image")
+                static private let title = "You Location history is Empty!".localized()
                 static let viewModel = EmptyViewModel(image: image, title: title)
                 
             }

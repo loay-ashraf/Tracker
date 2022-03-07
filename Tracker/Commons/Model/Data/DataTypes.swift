@@ -6,7 +6,7 @@
 //
 
 import Foundation
-//import RealmSwift
+import RealmSwift
 
 // MARK: - Error Types
 
@@ -30,14 +30,13 @@ enum CoreDataError: Error {
     case noData
 }
 
-//typealias RealmQuery<T> = (Query<T>) -> Query<Bool>
+typealias RealmQuery<T> = (Query<T>) -> Query<Bool>
 
 enum RealmError: Error {
     case saving(Error)
     case loading(Error)
     case writing(Error)
     case reading(Error)
-    case unsupportedModelType
     case fetching(Error)
     case deleting(Error)
     case noData

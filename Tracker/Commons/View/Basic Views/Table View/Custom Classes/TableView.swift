@@ -15,7 +15,7 @@ class TableView: UITableView {
     
     // MARK: - Data Source and Delegate Methods
     
-    func setDataSource<T: TableCellViewModel>(_ dataSource: TableViewDataSource<T>) {
+    func setDataSource<T: CellViewModel>(_ dataSource: TableViewDataSource<T>) {
         self.dataSource = dataSource
         dataSource.tableView = self
     }
@@ -53,6 +53,18 @@ class TableView: UITableView {
             return dequeueReusableCell(withIdentifier: cellClass.reuseIdentifier, for: indexPath) as! T
         }
         return TableViewCell() as! T
+    }
+    
+    // MARK: - Reload Data Method
+    
+    func reloadData(withAnimation animation: UITableView.RowAnimation) {
+        guard window != nil else {
+            reloadData()
+            return
+        }
+        let range = NSMakeRange(0, numberOfSections)
+        let sections = NSIndexSet(indexesIn: range)
+        reloadSections(sections as IndexSet, with: animation)
     }
     
 }

@@ -18,4 +18,3 @@ class TableViewSwipeResponder {
     func respondToSwipe(editingStyle: UITableViewCell.EditingStyle, atRow row: Int) { }
     
 }
-

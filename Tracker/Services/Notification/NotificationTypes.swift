@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NotificationBannerSwift
 
 enum Notification {
     
@@ -13,7 +14,13 @@ enum Notification {
     
     var request: UNNotificationRequest {
         switch self {
-        case .locationUpdated(let body): return NotificationConstants.LocationChanged.notificationRequest(body: body)
+        case .locationUpdated(let body): return NotificationConstants.LocationUpdated.notificationRequest(body: body)
+        }
+    }
+    
+    var banner: FloatingNotificationBanner {
+        switch self {
+        case .locationUpdated(let subtitle): return NotificationConstants.LocationUpdatedBanner.notificationBanner(subtitle: subtitle)
         }
     }
     

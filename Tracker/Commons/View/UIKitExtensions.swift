@@ -168,7 +168,22 @@ extension UIColor {
         }
         set { layer.shadowColor = newValue?.cgColor }
     }
+    
+    var shadowPath: CGPath? {
+        get { return layer.shadowPath }
+        set { layer.shadowPath = newValue }
+    }
 
+    var shouldRasterize: Bool {
+        get { return layer.shouldRasterize }
+        set { layer.shouldRasterize = newValue }
+    }
+    
+    var rasterizationScale: CGFloat {
+        get { return layer.rasterizationScale }
+        set { layer.rasterizationScale = newValue }
+    }
+    
     @IBInspectable var borderColor: UIColor? {
         get {
             guard let cgColor = layer.borderColor else {
