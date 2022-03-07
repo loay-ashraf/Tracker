@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import CoreLocation
 
 class SplashViewController: UIViewController {
 
     // MARK: - Properties
     
+    let dataManager = DataManager.standard
     let locationManager = LocationManager.standard
     let notificationManager = NotificationManager.standard
     
@@ -26,6 +28,8 @@ class SplashViewController: UIViewController {
     // MARK: - Setup Methods
     
     @MainActor private func setup() async {
+        try? dataManager.setup()
+        try? dataManager.loadData()
         do {
             try locationManager.setup()
             try await notificationManager.setup()
@@ -38,12 +42,23 @@ class SplashViewController: UIViewController {
             AlertHelper.showAlert(alert: alert)
         } catch { }
         setupLocationNotifications()
+        setupLocationEntry()
     }
     
     private func setupLocationNotifications() {
         locationManager.bindLocationString { [weak self] locationString in
             guard let locationString = locationString else { return }
             self?.notificationManager.sendNotification(notification: .locationUpdated(locationString))
+        }
+    }
+    
+    private func setupLocationEntry() {
+        locationManager.bindLocation { location in
+            guard let location = location else { return }
+            Task {
+                let historyModel = await HistoryModel(from: location)
+                try? HistoryManager.standard.add(entry: historyModel)
+            }
         }
     }
     
@@ -55,6 +70,27 @@ class SplashViewController: UIViewController {
             let tabBarController = storyBoard.instantiateViewController(identifier: "tabBarVC")
             tabBarController.modalPresentationStyle = .fullScreen
             NavigationRouter.present(viewController: tabBarController)
+        }
+    }
+    
+    // MARK: - Geocode Reverse Method
+    
+    func reverseGeocode(_ location: CLLocation) async -> String {
+        return await withUnsafeContinuation { continuation in
+            let geocoder = CLGeocoder()
+            geocoder.reverseGeocodeLocation(location, preferredLocale: .current) { placemarks, error in
+                var locationString = String()
+                guard let place = placemarks?.first, error == nil else {
+                    return
+                }
+                if let locality = place.locality {
+                    locationString.append(contentsOf: locality)
+                }
+                if let adminRegion = place.administrativeArea {
+                    locationString.append(contentsOf: ", \(adminRegion)")
+                }
+                continuation.resume(returning: locationString)
+            }
         }
     }
 

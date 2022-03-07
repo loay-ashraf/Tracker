@@ -16,8 +16,7 @@ protocol StoryboardableViewController: UIViewController {
     static func instatiate<T: ViewControllerContext>(context: T) -> UIViewController
     static func instatiate(parameter: String) -> UIViewController
     static func instatiate(parameters: [String]) -> UIViewController
-    static func instatiate<T: CollectionCellViewModel>(collectionCellViewModel: T) -> UIViewController
-    static func instatiate<T: TableCellViewModel>(tableCellViewModel: T) -> UIViewController
+    static func instatiate<T: CellViewModel>(cellViewModel: T) -> UIViewController
     static func instatiate<T: Model>(model: T) -> UIViewController
     
 }
@@ -40,12 +39,8 @@ extension StoryboardableViewController {
         fatalError("Fatal Error, This View controller cannot be instaniated using parameters")
     }
     
-    static func instatiate<T: CollectionCellViewModel>(collectionCellViewModel: T) -> UIViewController {
+    static func instatiate<T: CellViewModel>(cellViewModel: T) -> UIViewController {
         fatalError("Fatal Error, This View controller cannot be instaniated using Collection Cell View Model")
-    }
-    
-    static func instatiate<T: TableCellViewModel>(tableCellViewModel: T) -> UIViewController {
-        fatalError("Fatal Error, This View controller cannot be instaniated using Table Cell View Model")
     }
     
     static func instatiate<T: Model>(model: T) -> UIViewController {

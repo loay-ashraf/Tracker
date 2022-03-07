@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 extension Double {
     
@@ -85,6 +86,14 @@ extension Array {
                 if count == sizeLimit { break }
             }
         }
+    }
+    
+}
+
+extension CLLocation {
+    
+    convenience init(fromLocation location: Location) {
+        self.init(latitude: location.latitude, longitude: location.longitude)
     }
     
 }

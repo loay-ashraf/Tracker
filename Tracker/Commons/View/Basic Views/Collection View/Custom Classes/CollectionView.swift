@@ -15,7 +15,7 @@ class CollectionView: UICollectionView {
     
     // MARK: - Data Source and Delegate Methods
     
-    func setDataSource<T: CollectionCellViewModel>(_ dataSource: CollectionViewDataSource<T>) {
+    func setDataSource<T: CellViewModel>(_ dataSource: CollectionViewDataSource<T>) {
         self.dataSource = dataSource
         dataSource.collectionView = self
     }
@@ -46,6 +46,16 @@ class CollectionView: UICollectionView {
             return dequeueReusableCell(withReuseIdentifier: cellClass.reuseIdentifier, for: indexPath) as! T
         }
         return CollectionViewCell() as! T
+    }
+    
+    // MARK: - Reload Data Method
+    
+    override func reloadData() {
+        UIView.transition(with: self,
+                          duration: 0.5,
+                          options: [.transitionCrossDissolve, .allowAnimatedContent],
+                          animations: { super.reloadData() },
+                          completion: nil)
     }
     
 }

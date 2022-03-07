@@ -22,11 +22,23 @@ class EmptyView: UIView {
         imageView.image = emptyModel?.image
         titleLabel.text = emptyModel?.title
         frame = superView.bounds
-        superView.addSubview(self)
+        UIView.transition(with: superView,
+                          duration: 0.5,
+                          options: [.transitionCrossDissolve,.allowAnimatedContent],
+                          animations: {
+                            superView.addSubview(self)
+                          },
+                          completion: nil)
     }
     
     func hide() {
-        removeFromSuperview()
+        UIView.transition(with: self,
+                          duration: 0.5,
+                          options: [.transitionCrossDissolve,.allowAnimatedContent],
+                          animations: {
+                            self.removeFromSuperview()
+                          },
+                          completion: nil)
     }
 
 }

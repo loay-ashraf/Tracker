@@ -9,8 +9,8 @@ import Foundation
 
 protocol DataPersistenceCollectionViewModel: DataPersistenceViewModel {
     
-    associatedtype CollectionCellViewModelType: CollectionCellViewModel
-    associatedtype ModelType: Model
+    associatedtype CollectionCellViewModelType: CellViewModel
+    associatedtype ModelType
     
     var cellViewModels: Observable<Array<CollectionCellViewModelType>> { get set }
     var cellViewModelArray: Array<CollectionCellViewModelType> { get set }

@@ -76,7 +76,7 @@ extension LocationManager: CLLocationManagerDelegate {
     func reverseGeocode(_ location: CLLocation) async -> String {
         return await withUnsafeContinuation { continuation in
             let geocoder = CLGeocoder()
-            geocoder.reverseGeocodeLocation(location, preferredLocale: .current) { placemarks, error in
+            geocoder.reverseGeocodeLocation(location) { placemarks, error in
                 var locationString = String()
                 guard let place = placemarks?.first, error == nil else {
                     return

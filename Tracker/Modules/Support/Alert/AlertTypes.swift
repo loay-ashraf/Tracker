@@ -14,6 +14,7 @@ enum Alert {
     case locationAccessRestricted((() -> Void)? = nil)
     case notificationAccessDenied((() -> Void)? = nil)
     case notificationAuthorizationError((() -> Void)? = nil)
+    case clearHistory(() -> Void, (() -> Void)? = nil)
     
     var controller: UIAlertController {
         switch self {
@@ -22,6 +23,7 @@ enum Alert {
         case .locationAccessRestricted(let handler): return AlertConstants.LocationAccessRestricted.alertController(handler: handler)
         case .notificationAccessDenied(let handler): return AlertConstants.NotificationsAccessDenied.alertController(handler: handler)
         case .notificationAuthorizationError(let handler): return AlertConstants.NotificationsAuthorizationError.alertController(handler: handler)
+        case .clearHistory(let primaryHandler, let secondaryHandler): return AlertConstants.ClearHistory.alertController(primaryHandler: primaryHandler, secondaryHandler: secondaryHandler)
         }
     }
     
