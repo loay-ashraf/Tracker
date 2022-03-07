@@ -19,6 +19,7 @@ class LocationManager: NSObject {
     private var authorizationStatus: CLAuthorizationStatus { return CLLocationManager.authorizationStatus() }
     private var currentLocation = Observable<CLLocation>()
     private var currentLocationString = Observable<String>()
+    private var authorizationCallback: ((CLAuthorizationStatus) -> Void)?
     
     // MARK: - Initialization
     
@@ -27,7 +28,7 @@ class LocationManager: NSObject {
     // MARK: - Setup Method
     
     func setup() throws {
-        manager.delegate = self
+        if manager.delegate == nil { manager.delegate = self }
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.allowsBackgroundLocationUpdates = true
         manager.pausesLocationUpdatesAutomatically = true
@@ -41,8 +42,13 @@ class LocationManager: NSObject {
         guard authorizationStatus != .restricted else {
             throw LocationError.locationAccessRestricted
         }
+    }
+    
+    func requestAuthorization(then callback: @escaping (CLAuthorizationStatus) -> Void) {
+        if manager.delegate == nil { manager.delegate = self }
+        authorizationCallback = callback
         if authorizationStatus == .notDetermined {
-            manager.requestAlwaysAuthorization()
+            manager.requestWhenInUseAuthorization()
         }
     }
     
@@ -68,6 +74,22 @@ extension LocationManager: CLLocationManagerDelegate {
             Task {
                 currentLocationString.value = await reverseGeocode(location)
             }
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            manager.requestAlwaysAuthorization()
+        } else {
+            authorizationCallback?(status)
+        }
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        if authorizationStatus == .authorizedWhenInUse {
+            manager.requestAlwaysAuthorization()
+        } else {
+            authorizationCallback?(authorizationStatus)
         }
     }
     

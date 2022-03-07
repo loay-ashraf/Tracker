@@ -29,8 +29,19 @@
 		C674086F27D4F479001F3F01 /* HistoryTapResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674086E27D4F479001F3F01 /* HistoryTapResponder.swift */; };
 		C674087127D4F488001F3F01 /* HistoryEditResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674087027D4F488001F3F01 /* HistoryEditResponder.swift */; };
 		C674087327D50376001F3F01 /* HistoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674087227D50376001F3F01 /* HistoryDetailViewController.swift */; };
+		C68ADD3227D61B29007C8CC3 /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = C68ADD3127D61B28007C8CC3 /* success.json */; };
+		C68B5E2A27D5E73E00AD9378 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68B5E2927D5E73E00AD9378 /* OnboardingViewController.swift */; };
+		C68B5E2C27D5E7FC00AD9378 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68B5E2B27D5E7FC00AD9378 /* IntroViewController.swift */; };
+		C68B5E2E27D5E82000AD9378 /* LocationAccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68B5E2D27D5E82000AD9378 /* LocationAccessViewController.swift */; };
+		C68B5E3027D5E83600AD9378 /* NotificationAccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68B5E2F27D5E83600AD9378 /* NotificationAccessViewController.swift */; };
+		C68B5E3227D5E84600AD9378 /* ConclusionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68B5E3127D5E84600AD9378 /* ConclusionViewController.swift */; };
+		C68B5E3527D5FF6800AD9378 /* location-access.json in Resources */ = {isa = PBXBuildFile; fileRef = C68B5E3427D5FF6700AD9378 /* location-access.json */; };
+		C68B5E3727D5FF7A00AD9378 /* notifications-access.json in Resources */ = {isa = PBXBuildFile; fileRef = C68B5E3627D5FF7A00AD9378 /* notifications-access.json */; };
 		C69C741327D1ED040011EA8A /* LocationTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69C741227D1ED040011EA8A /* LocationTypes.swift */; };
 		C69C741527D1ED5A0011EA8A /* NotificationTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69C741427D1ED5A0011EA8A /* NotificationTypes.swift */; };
+		C6C8223727D654AA006948D3 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6C8223627D654AA006948D3 /* Onboarding.storyboard */; };
+		C6C8223A27D65BE6006948D3 /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C8223927D65BE6006948D3 /* HomeNavigationController.swift */; };
+		C6C8223C27D65C68006948D3 /* HistoryNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C8223B27D65C68006948D3 /* HistoryNavigationController.swift */; };
 		C6D87B8227CFDEF00027880C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D87B8127CFDEF00027880C /* LocationManager.swift */; };
 		C6D87B8527D008020027880C /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D87B8427D008020027880C /* NotificationManager.swift */; };
 		C6D898DC27D0A6990005353D /* HomeLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D898DB27D0A6990005353D /* HomeLogicController.swift */; };
@@ -127,8 +138,19 @@
 		C674086E27D4F479001F3F01 /* HistoryTapResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTapResponder.swift; sourceTree = "<group>"; };
 		C674087027D4F488001F3F01 /* HistoryEditResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryEditResponder.swift; sourceTree = "<group>"; };
 		C674087227D50376001F3F01 /* HistoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailViewController.swift; sourceTree = "<group>"; };
+		C68ADD3127D61B28007C8CC3 /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = success.json; sourceTree = "<group>"; };
+		C68B5E2927D5E73E00AD9378 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		C68B5E2B27D5E7FC00AD9378 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		C68B5E2D27D5E82000AD9378 /* LocationAccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAccessViewController.swift; sourceTree = "<group>"; };
+		C68B5E2F27D5E83600AD9378 /* NotificationAccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAccessViewController.swift; sourceTree = "<group>"; };
+		C68B5E3127D5E84600AD9378 /* ConclusionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConclusionViewController.swift; sourceTree = "<group>"; };
+		C68B5E3427D5FF6700AD9378 /* location-access.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "location-access.json"; sourceTree = "<group>"; };
+		C68B5E3627D5FF7A00AD9378 /* notifications-access.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "notifications-access.json"; sourceTree = "<group>"; };
 		C69C741227D1ED040011EA8A /* LocationTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTypes.swift; sourceTree = "<group>"; };
 		C69C741427D1ED5A0011EA8A /* NotificationTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTypes.swift; sourceTree = "<group>"; };
+		C6C8223627D654AA006948D3 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		C6C8223927D65BE6006948D3 /* HomeNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
+		C6C8223B27D65C68006948D3 /* HistoryNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryNavigationController.swift; sourceTree = "<group>"; };
 		C6D87B8127CFDEF00027880C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		C6D87B8427D008020027880C /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		C6D898DB27D0A6990005353D /* HomeLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLogicController.swift; sourceTree = "<group>"; };
@@ -256,6 +278,7 @@
 		C613108727CF9DF000245A04 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C6C8223927D65BE6006948D3 /* HomeNavigationController.swift */,
 				C613108827CF9EB100245A04 /* HomeViewController.swift */,
 			);
 			path = "View Controller";
@@ -303,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				C6150E4727CF9148002DCCC7 /* App */,
+				C68B5E2727D5E70900AD9378 /* Onboarding */,
 				C621F88F27D34F7C004B2169 /* History */,
 				C613108327CF9DCF00245A04 /* Home */,
 				C6D898DF27D0E0D80005353D /* Splash */,
@@ -322,6 +346,9 @@
 		C6150E4827CF9156002DCCC7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C68ADD3127D61B28007C8CC3 /* success.json */,
+				C68B5E3627D5FF7A00AD9378 /* notifications-access.json */,
+				C68B5E3427D5FF6700AD9378 /* location-access.json */,
 				C6150E3A27CF8FB2002DCCC7 /* Assets.xcassets */,
 				C613108A27CFB01F00245A04 /* Info.plist */,
 			);
@@ -362,8 +389,9 @@
 		C621F89227D34F9B004B2169 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C621F8A127D374D1004B2169 /* HistoryViewController.swift */,
 				C674087227D50376001F3F01 /* HistoryDetailViewController.swift */,
+				C6C8223B27D65C68006948D3 /* HistoryNavigationController.swift */,
+				C621F8A127D374D1004B2169 /* HistoryViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -413,6 +441,35 @@
 			path = "Custom Components";
 			sourceTree = "<group>";
 		};
+		C68B5E2727D5E70900AD9378 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				C6C8223827D654DD006948D3 /* View */,
+				C68B5E2827D5E71600AD9378 /* View Controller */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		C68B5E2827D5E71600AD9378 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C68B5E3327D5E85200AD9378 /* Pages */,
+				C68B5E2927D5E73E00AD9378 /* OnboardingViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		C68B5E3327D5E85200AD9378 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				C68B5E2B27D5E7FC00AD9378 /* IntroViewController.swift */,
+				C68B5E2D27D5E82000AD9378 /* LocationAccessViewController.swift */,
+				C68B5E2F27D5E83600AD9378 /* NotificationAccessViewController.swift */,
+				C68B5E3127D5E84600AD9378 /* ConclusionViewController.swift */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
 		C69C741627D1F28D0011EA8A /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -420,6 +477,14 @@
 				C6D87B8327D007E70027880C /* Notification */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		C6C8223827D654DD006948D3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C6C8223627D654AA006948D3 /* Onboarding.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		C6D87B8027CFDEDA0027880C /* Location */ = {
@@ -891,7 +956,6 @@
 			knownRegions = (
 				en,
 				Base,
-				ar,
 			);
 			mainGroup = C6150E2527CF8FB0002DCCC7;
 			productRefGroup = C6150E2F27CF8FB0002DCCC7 /* Products */;
@@ -911,9 +975,13 @@
 				C621F8AE27D37B48004B2169 /* HistoryCell.xib in Resources */,
 				C6150E3E27CF8FB2002DCCC7 /* LaunchScreen.storyboard in Resources */,
 				C6DCBD0927CF954100AE991B /* FooterActivityIndicatorView.xib in Resources */,
+				C6C8223727D654AA006948D3 /* Onboarding.storyboard in Resources */,
+				C68B5E3727D5FF7A00AD9378 /* notifications-access.json in Resources */,
 				C6DCBD0A27CF954100AE991B /* ActivityIndicatorView.xib in Resources */,
+				C68ADD3227D61B29007C8CC3 /* success.json in Resources */,
 				C6DCBD2A27CF954100AE991B /* EmptyView.xib in Resources */,
 				C6DCBD2627CF954100AE991B /* FooterErrorView.xib in Resources */,
+				C68B5E3527D5FF6800AD9378 /* location-access.json in Resources */,
 				C6DCBD2527CF954100AE991B /* ErrorView.xib in Resources */,
 				C6150E3B27CF8FB2002DCCC7 /* Assets.xcassets in Resources */,
 				C6150E3927CF8FB0002DCCC7 /* Main.storyboard in Resources */,
@@ -979,9 +1047,11 @@
 				C621F89D27D369A5004B2169 /* HistoryViewModel.swift in Sources */,
 				C6FD87E827D4768F006073F0 /* TableViewTapResponder.swift in Sources */,
 				C6DCBCD927CF954100AE991B /* DataPersistenceCollectionViewModel.swift in Sources */,
+				C68B5E3027D5E83600AD9378 /* NotificationAccessViewController.swift in Sources */,
 				C6DCBD1227CF954100AE991B /* StatefulViewTypes.swift in Sources */,
 				C6DCBCE827CF954100AE991B /* BundlePersistenceProvider.swift in Sources */,
 				C6DCBD2B27CF954100AE991B /* EmptyView.swift in Sources */,
+				C6C8223C27D65C68006948D3 /* HistoryNavigationController.swift in Sources */,
 				C6DCBD0B27CF954100AE991B /* FooterActivityIndicatorView.swift in Sources */,
 				C6DCBCED27CF954100AE991B /* StoryboardableViewController.swift in Sources */,
 				C6DCBCDF27CF954100AE991B /* ModelProtocols.swift in Sources */,
@@ -1002,6 +1072,7 @@
 				C674086F27D4F479001F3F01 /* HistoryTapResponder.swift in Sources */,
 				C6DCBCF627CF954100AE991B /* CollectionViewTapResponder.swift in Sources */,
 				C6DCBCF427CF954100AE991B /* CollectionViewCellConfigurator.swift in Sources */,
+				C68B5E2A27D5E73E00AD9378 /* OnboardingViewController.swift in Sources */,
 				C6DCBCE727CF954100AE991B /* FileManagerPersistenceProvider.swift in Sources */,
 				C621F89627D34FD8004B2169 /* HistoryManager.swift in Sources */,
 				C621F8A427D37728004B2169 /* HistoryDataSource.swift in Sources */,
@@ -1022,16 +1093,20 @@
 				C621F8AD27D37B48004B2169 /* HistoryCell.swift in Sources */,
 				C6DCBD3627CF9A9300AE991B /* NavigationRouter.swift in Sources */,
 				C6DCBD3527CF9A9300AE991B /* URLHelper.swift in Sources */,
+				C6C8223A27D65BE6006948D3 /* HomeNavigationController.swift in Sources */,
 				C69C741527D1ED5A0011EA8A /* NotificationTypes.swift in Sources */,
 				C6DCBD2727CF954100AE991B /* FooterErrorView.swift in Sources */,
+				C68B5E2C27D5E7FC00AD9378 /* IntroViewController.swift in Sources */,
 				C621F89B27D35DEF004B2169 /* HistoryLogicController.swift in Sources */,
 				C6DCBD0827CF954100AE991B /* UIKitExtensions.swift in Sources */,
+				C68B5E2E27D5E82000AD9378 /* LocationAccessViewController.swift in Sources */,
 				C6150E3427CF8FB0002DCCC7 /* SceneDelegate.swift in Sources */,
 				C6D898DE27D0A8120005353D /* HomeViewModel.swift in Sources */,
 				C6D898DC27D0A6990005353D /* HomeLogicController.swift in Sources */,
 				C6DCBCF727CF954100AE991B /* CollectionView.swift in Sources */,
 				C621F8B027D38988004B2169 /* HistoryModel.swift in Sources */,
 				C6FD87E927D4768F006073F0 /* TableViewDataSource.swift in Sources */,
+				C68B5E3227D5E84600AD9378 /* ConclusionViewController.swift in Sources */,
 				C6DCBCF527CF954100AE991B /* CollectionViewDelegate.swift in Sources */,
 				C6DCBD1F27CF954100AE991B /* DPSFView.swift in Sources */,
 				C6DCBCF327CF954100AE991B /* CollectionViewDataSource.swift in Sources */,

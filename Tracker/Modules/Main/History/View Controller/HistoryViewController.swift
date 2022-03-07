@@ -12,7 +12,6 @@ class HistoryViewController: DPSFDynamicTableViewController<HistoryViewModel> {
     // MARK: - Properties
     
     let notificationManager = NotificationManager.standard
-    var isEmpty = Observable<Bool>()
     
     // MARK: - View Outlets
     
@@ -95,7 +94,6 @@ class HistoryViewController: DPSFDynamicTableViewController<HistoryViewModel> {
                         self?.clearButton.isEnabled = true
                     }
                 }
-                self?.isEmpty.value = self?.viewModel.isEmpty
             }
         }
     }

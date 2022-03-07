@@ -21,9 +21,17 @@ class SplashViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         Task {
+            guard dataManager.userDefaultsPersistenceProvider.userOnboardedKey else {
+                presentOnboardingController()
+                return
+            }
             await setup()
         }
     }
+    
+    // MARK: - Navigation
+    
+    @IBAction func unwindToSplash(unwindSegue: UIStoryboardSegue) { }
     
     // MARK: - Setup Methods
     
@@ -62,7 +70,7 @@ class SplashViewController: UIViewController {
         }
     }
     
-    // MARK: - Tab Bar Presentation Method
+    // MARK: - Controllers presentation Methods
     
     private func presentTabBarController() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -73,25 +81,13 @@ class SplashViewController: UIViewController {
         }
     }
     
-    // MARK: - Geocode Reverse Method
-    
-    func reverseGeocode(_ location: CLLocation) async -> String {
-        return await withUnsafeContinuation { continuation in
-            let geocoder = CLGeocoder()
-            geocoder.reverseGeocodeLocation(location, preferredLocale: .current) { placemarks, error in
-                var locationString = String()
-                guard let place = placemarks?.first, error == nil else {
-                    return
-                }
-                if let locality = place.locality {
-                    locationString.append(contentsOf: locality)
-                }
-                if let adminRegion = place.administrativeArea {
-                    locationString.append(contentsOf: ", \(adminRegion)")
-                }
-                continuation.resume(returning: locationString)
-            }
+    private func presentOnboardingController() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            let storyBoard = StoryboardConstants.main
+            let tabBarController = storyBoard.instantiateViewController(identifier: "OnboardingVC")
+            tabBarController.modalPresentationStyle = .fullScreen
+            NavigationRouter.present(viewController: tabBarController)
         }
     }
-
+    
 }

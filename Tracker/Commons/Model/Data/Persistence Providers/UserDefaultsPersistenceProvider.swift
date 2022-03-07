@@ -6,18 +6,17 @@
 //
 
 import Foundation
-//import InAppSettingsKit
 
 class UserDefaultsPersistenceProvider: DataPersistenceProvider {
+    
+    // MARK: - Properties
     
     private let userDefaults = UserDefaults.standard
     
     // MARK: - Setup Methods
     
     func setup() {
-//        let settingsReader = IASKSettingsReader()
-//        let defaultDict = settingsReader.gatherDefaultsLimited(toEditableFields: true)
-//        register(defaults: defaultDict)
+        register(defaults: ["user-onboarded":false])
     }
     
     // MARK: - Defaults Registeration Methods
@@ -52,8 +51,20 @@ class UserDefaultsPersistenceProvider: DataPersistenceProvider {
     // MARK: - Clear Methods
     
     func clear() {
-        userDefaults.removeObject(forKey: "session-type")
-        userDefaults.removeObject(forKey: "theme")
+        userDefaults.removeObject(forKey: "user-onboarded")
+    }
+    
+}
+
+extension UserDefaultsPersistenceProvider {
+    
+    var userOnboardedKey: Bool {
+        get {
+            return userDefaults.bool(forKey: "user-onboarded")
+        }
+        set(userOnboarded) {
+            userDefaults.set(userOnboarded, forKey: "user-onboarded")
+        }
     }
     
 }
