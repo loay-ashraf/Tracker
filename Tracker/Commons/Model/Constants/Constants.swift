@@ -20,7 +20,6 @@ typealias StoryboardConstants = ViewConstants.Storyboard
 typealias NavigationBarConstants = ViewConstants.NavigationBar
 typealias AlertConstants = ViewConstants.Alert
 typealias NotificationConstants = ViewConstants.Notification
-typealias ErrorConstants = ViewConstants.Error
 typealias EmptyConstants = ViewConstants.Empty
 
 struct Constants {
@@ -188,22 +187,6 @@ struct Constants {
                     return banner
                 }
 
-            }
-            
-        }
-        
-        // MARK: - Error Constants
-        
-        struct Error {
-            
-            // Data error image, title and message
-            struct Data {
-                
-                static private let image = UIImage(systemName: "externaldrive.badge.xmark")
-                static private let title = "Couldn't Retrieve Data".localized()
-                static private let message = "We're working on it,\nWe will be back soon.".localized()
-                static let viewModel = ErrorViewModel(image: image, title: title, message: message)
-                
             }
             
         }

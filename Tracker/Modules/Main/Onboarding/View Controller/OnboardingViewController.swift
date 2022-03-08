@@ -34,6 +34,8 @@ class OnboardingViewController: UIPageViewController, OnboardingConclusionDelega
         setupPageViewControllers()
     }
     
+    // MARK: - View Helper Methods
+    
     private func setupPageViewControllers() {
         if let introViewController = orderedViewControllers.first {
             setViewControllers([introViewController],
@@ -73,6 +75,8 @@ class OnboardingViewController: UIPageViewController, OnboardingConclusionDelega
 
 extension OnboardingViewController: UIPageViewControllerDataSource {
  
+    // MARK: - Data Source
+    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController) else {
             return nil
@@ -127,6 +131,8 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
 
 extension OnboardingViewController: OnboardingLocationAccessDelegate {
     
+    // MARK: - Location Access Delegate
+    
     func didFinishLocationAccess() {
         goToNextPage()
         isNotificationUnlocked = true
@@ -136,45 +142,11 @@ extension OnboardingViewController: OnboardingLocationAccessDelegate {
 
 extension OnboardingViewController: OnboardingNotificationAccessDelegate {
     
+    // MARK: - Notification Access Delegate
+    
     func didFinishNotificationsAccess() {
         goToNextPage()
         isConclusionUnlocked = true
     }
     
-}
-
-protocol OnboardingLocationAccessDelegate: AnyObject {
-    
-    func didFinishLocationAccess()
-    
-}
-
-protocol OnboardingNotificationAccessDelegate: AnyObject {
-    
-    var isNotificationUnlocked: Bool { get set }
-    
-    func didFinishNotificationsAccess()
-    
-}
-
-protocol OnboardingConclusionDelegate: AnyObject {
-    
-    var isConclusionUnlocked: Bool { get set }
-    
-}
-
-extension UIPageViewController {
-
-    func goToNextPage() {
-        guard let currentViewController = viewControllers?.first else { return }
-        guard let nextViewController = dataSource?.pageViewController( self, viewControllerAfter: currentViewController ) else { return }
-        setViewControllers([nextViewController], direction: .forward, animated: true, completion: nil)
-    }
-
-    func goToPreviousPage() {
-        guard let currentViewController = viewControllers?.first else { return }
-        guard let previousViewController = dataSource?.pageViewController( self, viewControllerBefore: currentViewController ) else { return }
-        setViewControllers([previousViewController], direction: .reverse, animated: true, completion: nil)
-    }
-
 }
