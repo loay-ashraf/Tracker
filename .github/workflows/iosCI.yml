@@ -26,13 +26,13 @@ jobs:
       - name: Show the currently detailed version of Xcode for CLI
         run: xcode-select -p
       - name: Show Build Settings
-        run: xcodebuild -workspace GitIt.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -showBuildSettings
+        run: xcodebuild -workspace Tracker.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -showBuildSettings
       - name: Show Build SDK
-        run: xcodebuild -workspace GitIt.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -showsdks
+        run: xcodebuild -workspace Tracker.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -showsdks
       - name: Show Available Destinations
-        run: xcodebuild -workspace GitIt.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -showdestinations
+        run: xcodebuild -workspace Tracker.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -showdestinations
       - name: clean
-        run: xcodebuild clean -workspace GitIt.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -destination '${{ matrix.run-config['destination'] }}' -showBuildTimingSummary
+        run: xcodebuild clean -workspace Tracker.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -destination '${{ matrix.run-config['destination'] }}' -showBuildTimingSummary
       - name: build
-        run: xcodebuild -workspace GitIt.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -destination '${{ matrix.run-config['destination'] }}' -showBuildTimingSummary
+        run: xcodebuild -workspace Tracker.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -destination '${{ matrix.run-config['destination'] }}' -showBuildTimingSummary
         
