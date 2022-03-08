@@ -223,7 +223,7 @@
         <!--History Detail View Controller-->
         <scene sceneID="aVe-o2-D1X">
             <objects>
-                <viewController storyboardIdentifier="HistoryDetailVC" id="m63-Ef-hDD" customClass="HistoryDetailViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HistoryDetailVC" hidesBottomBarWhenPushed="YES" id="m63-Ef-hDD" customClass="HistoryDetailViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gsQ-CQ-Bej">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

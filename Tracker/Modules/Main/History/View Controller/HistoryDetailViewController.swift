@@ -66,7 +66,6 @@ class HistoryDetailViewController: UIViewController, StoryboardableViewControlle
     
     func configureView() {
         locationView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.85)
-        hidesBottomBarWhenPushed = true
     }
     
     func updateLocationMap() {
