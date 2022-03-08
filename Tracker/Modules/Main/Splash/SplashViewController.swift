@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import Lottie
 
 class SplashViewController: UIViewController {
 
@@ -16,16 +17,39 @@ class SplashViewController: UIViewController {
     let locationManager = LocationManager.standard
     let notificationManager = NotificationManager.standard
     
+    // MARK: - View Outlets
+    
+    @IBOutlet weak var activityIndicatorAnimationView: AnimationView!
+    
     // MARK: - Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        activityIndicatorAnimationView.animation = .named("activity-indicator")
+        activityIndicatorAnimationView.contentMode = .scaleAspectFill
+        activityIndicatorAnimationView.loopMode = .loop
+        activityIndicatorAnimationView.animationSpeed = 1.0
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        DispatchQueue.main.async {
+            self.activityIndicatorAnimationView.play()
+        }
         Task {
             guard dataManager.userDefaultsPersistenceProvider.userOnboardedKey else {
                 presentOnboardingController()
                 return
             }
             await setup()
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        DispatchQueue.main.async {
+            self.activityIndicatorAnimationView.stop()
         }
     }
     
@@ -73,7 +97,7 @@ class SplashViewController: UIViewController {
     // MARK: - Controllers presentation Methods
     
     private func presentTabBarController() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             let storyBoard = StoryboardConstants.main
             let tabBarController = storyBoard.instantiateViewController(identifier: "tabBarVC")
             tabBarController.modalPresentationStyle = .fullScreen
@@ -82,7 +106,7 @@ class SplashViewController: UIViewController {
     }
     
     private func presentOnboardingController() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             let storyBoard = StoryboardConstants.main
             let tabBarController = storyBoard.instantiateViewController(identifier: "OnboardingVC")
             tabBarController.modalPresentationStyle = .fullScreen

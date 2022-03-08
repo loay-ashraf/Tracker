@@ -26,6 +26,7 @@ class ConclusionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        conclusionAnimationView.animation = .named("success")
         conclusionAnimationView.contentMode = .scaleAspectFit
         conclusionAnimationView.loopMode = .loop
         conclusionAnimationView.animationSpeed = 0.5

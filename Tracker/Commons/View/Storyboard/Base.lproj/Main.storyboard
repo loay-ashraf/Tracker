@@ -26,20 +26,26 @@
                                     <constraint firstAttribute="height" constant="256" id="Okh-yB-3z6"/>
                                 </constraints>
                             </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="eFh-VE-ppe">
-                                <rect key="frame" x="188.5" y="646" width="37" height="37"/>
-                                <color key="color" name="AccentColor"/>
-                            </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iuu-mI-w0a" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="157" y="646" width="100" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="fsO-S4-7GE"/>
+                                    <constraint firstAttribute="width" constant="100" id="tiw-9s-1pc"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ae6-i1-pZK"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
-                            <constraint firstItem="eFh-VE-ppe" firstAttribute="top" secondItem="we7-jG-TWG" secondAttribute="bottom" constant="70" id="3b1-bS-WGd"/>
-                            <constraint firstItem="eFh-VE-ppe" firstAttribute="centerX" secondItem="egp-yM-5o3" secondAttribute="centerX" id="5XF-FL-HM9"/>
+                            <constraint firstItem="Iuu-mI-w0a" firstAttribute="top" secondItem="we7-jG-TWG" secondAttribute="bottom" constant="70" id="LyQ-3U-MT5"/>
                             <constraint firstItem="we7-jG-TWG" firstAttribute="centerY" secondItem="egp-yM-5o3" secondAttribute="centerY" id="UZf-mW-0WT"/>
+                            <constraint firstItem="Iuu-mI-w0a" firstAttribute="centerX" secondItem="egp-yM-5o3" secondAttribute="centerX" id="YzS-V9-82x"/>
                             <constraint firstItem="we7-jG-TWG" firstAttribute="centerX" secondItem="egp-yM-5o3" secondAttribute="centerX" id="iAW-QD-gsu"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicatorAnimationView" destination="Iuu-mI-w0a" id="wMD-zR-jei"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3L0-Dc-C2h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

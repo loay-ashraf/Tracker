@@ -26,6 +26,7 @@ class LocationAccessViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        locaionAccessAnimationView.animation = .named("location-access")
         locaionAccessAnimationView.contentMode = .scaleAspectFit
         locaionAccessAnimationView.loopMode = .loop
         locaionAccessAnimationView.animationSpeed = 0.5

@@ -35,10 +35,11 @@
 		C68B5E2E27D5E82000AD9378 /* LocationAccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68B5E2D27D5E82000AD9378 /* LocationAccessViewController.swift */; };
 		C68B5E3027D5E83600AD9378 /* NotificationAccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68B5E2F27D5E83600AD9378 /* NotificationAccessViewController.swift */; };
 		C68B5E3227D5E84600AD9378 /* ConclusionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68B5E3127D5E84600AD9378 /* ConclusionViewController.swift */; };
-		C68B5E3527D5FF6800AD9378 /* location-access.json in Resources */ = {isa = PBXBuildFile; fileRef = C68B5E3427D5FF6700AD9378 /* location-access.json */; };
-		C68B5E3727D5FF7A00AD9378 /* notifications-access.json in Resources */ = {isa = PBXBuildFile; fileRef = C68B5E3627D5FF7A00AD9378 /* notifications-access.json */; };
 		C69C741327D1ED040011EA8A /* LocationTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69C741227D1ED040011EA8A /* LocationTypes.swift */; };
 		C69C741527D1ED5A0011EA8A /* NotificationTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69C741427D1ED5A0011EA8A /* NotificationTypes.swift */; };
+		C6AE700E27D7435600223A1B /* activity-indicator.json in Resources */ = {isa = PBXBuildFile; fileRef = C6AE700D27D7435600223A1B /* activity-indicator.json */; };
+		C6C474D027D7246C00A8A3C3 /* notifications-access.json in Resources */ = {isa = PBXBuildFile; fileRef = C6C474CF27D7246C00A8A3C3 /* notifications-access.json */; };
+		C6C474D227D7256800A8A3C3 /* location-access.json in Resources */ = {isa = PBXBuildFile; fileRef = C6C474D127D7256800A8A3C3 /* location-access.json */; };
 		C6C8223727D654AA006948D3 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6C8223627D654AA006948D3 /* Onboarding.storyboard */; };
 		C6C8223A27D65BE6006948D3 /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C8223927D65BE6006948D3 /* HomeNavigationController.swift */; };
 		C6C8223C27D65C68006948D3 /* HistoryNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C8223B27D65C68006948D3 /* HistoryNavigationController.swift */; };
@@ -144,10 +145,11 @@
 		C68B5E2D27D5E82000AD9378 /* LocationAccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAccessViewController.swift; sourceTree = "<group>"; };
 		C68B5E2F27D5E83600AD9378 /* NotificationAccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAccessViewController.swift; sourceTree = "<group>"; };
 		C68B5E3127D5E84600AD9378 /* ConclusionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConclusionViewController.swift; sourceTree = "<group>"; };
-		C68B5E3427D5FF6700AD9378 /* location-access.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "location-access.json"; sourceTree = "<group>"; };
-		C68B5E3627D5FF7A00AD9378 /* notifications-access.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "notifications-access.json"; sourceTree = "<group>"; };
 		C69C741227D1ED040011EA8A /* LocationTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTypes.swift; sourceTree = "<group>"; };
 		C69C741427D1ED5A0011EA8A /* NotificationTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTypes.swift; sourceTree = "<group>"; };
+		C6AE700D27D7435600223A1B /* activity-indicator.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "activity-indicator.json"; sourceTree = "<group>"; };
+		C6C474CF27D7246C00A8A3C3 /* notifications-access.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "notifications-access.json"; sourceTree = "<group>"; };
+		C6C474D127D7256800A8A3C3 /* location-access.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "location-access.json"; sourceTree = "<group>"; };
 		C6C8223627D654AA006948D3 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		C6C8223927D65BE6006948D3 /* HomeNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
 		C6C8223B27D65C68006948D3 /* HistoryNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryNavigationController.swift; sourceTree = "<group>"; };
@@ -346,9 +348,7 @@
 		C6150E4827CF9156002DCCC7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C68ADD3127D61B28007C8CC3 /* success.json */,
-				C68B5E3627D5FF7A00AD9378 /* notifications-access.json */,
-				C68B5E3427D5FF6700AD9378 /* location-access.json */,
+				C6C474CE27D7244E00A8A3C3 /* Lottie */,
 				C6150E3A27CF8FB2002DCCC7 /* Assets.xcassets */,
 				C613108A27CFB01F00245A04 /* Info.plist */,
 			);
@@ -477,6 +477,17 @@
 				C6D87B8327D007E70027880C /* Notification */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		C6C474CE27D7244E00A8A3C3 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				C6AE700D27D7435600223A1B /* activity-indicator.json */,
+				C6C474D127D7256800A8A3C3 /* location-access.json */,
+				C6C474CF27D7246C00A8A3C3 /* notifications-access.json */,
+				C68ADD3127D61B28007C8CC3 /* success.json */,
+			);
+			path = Lottie;
 			sourceTree = "<group>";
 		};
 		C6C8223827D654DD006948D3 /* View */ = {
@@ -974,14 +985,15 @@
 			files = (
 				C621F8AE27D37B48004B2169 /* HistoryCell.xib in Resources */,
 				C6150E3E27CF8FB2002DCCC7 /* LaunchScreen.storyboard in Resources */,
+				C6C474D227D7256800A8A3C3 /* location-access.json in Resources */,
 				C6DCBD0927CF954100AE991B /* FooterActivityIndicatorView.xib in Resources */,
+				C6C474D027D7246C00A8A3C3 /* notifications-access.json in Resources */,
 				C6C8223727D654AA006948D3 /* Onboarding.storyboard in Resources */,
-				C68B5E3727D5FF7A00AD9378 /* notifications-access.json in Resources */,
+				C6AE700E27D7435600223A1B /* activity-indicator.json in Resources */,
 				C6DCBD0A27CF954100AE991B /* ActivityIndicatorView.xib in Resources */,
 				C68ADD3227D61B29007C8CC3 /* success.json in Resources */,
 				C6DCBD2A27CF954100AE991B /* EmptyView.xib in Resources */,
 				C6DCBD2627CF954100AE991B /* FooterErrorView.xib in Resources */,
-				C68B5E3527D5FF6800AD9378 /* location-access.json in Resources */,
 				C6DCBD2527CF954100AE991B /* ErrorView.xib in Resources */,
 				C6150E3B27CF8FB2002DCCC7 /* Assets.xcassets in Resources */,
 				C6150E3927CF8FB0002DCCC7 /* Main.storyboard in Resources */,

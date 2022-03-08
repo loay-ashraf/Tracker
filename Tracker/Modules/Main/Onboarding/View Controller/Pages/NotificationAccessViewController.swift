@@ -26,6 +26,7 @@ class NotificationAccessViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        noticationsAccessAnimationView.animation = .named("notifications-access")
         noticationsAccessAnimationView.contentMode = .scaleAspectFit
         noticationsAccessAnimationView.loopMode = .loop
         noticationsAccessAnimationView.animationSpeed = 0.5

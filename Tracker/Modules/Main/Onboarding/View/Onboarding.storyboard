@@ -13,7 +13,7 @@
         <!--Onboarding View Controller-->
         <scene sceneID="5cy-HF-J8G">
             <objects>
-                <pageViewController storyboardIdentifier="OnboardingVC" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="max" doubleSided="YES" id="63C-JI-Raa" customClass="OnboardingViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="OnboardingVC" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="63C-JI-Raa" customClass="OnboardingViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cuf-B2-ylw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-762" y="1158"/>
@@ -112,7 +112,7 @@ Tracker enables you to log your everyday locations for later review or even shar
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wh5-yn-jdF" customClass="AdaptableSizeButton" customModule="Tracker" customModuleProvider="target">
-                                <rect key="frame" x="130" y="739" width="154" height="50"/>
+                                <rect key="frame" x="115" y="739" width="184" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="1UJ-Mq-ZqI"/>
@@ -176,7 +176,7 @@ Tracker enables you to log your everyday locations for later review or even shar
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZe-OZ-dAk" customClass="AdaptableSizeButton" customModule="Tracker" customModuleProvider="target">
-                                <rect key="frame" x="116" y="739" width="182" height="50"/>
+                                <rect key="frame" x="101" y="739" width="212" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="9Ec-iD-f89"/>
@@ -236,13 +236,13 @@ Tracker enables you to log your everyday locations for later review or even shar
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0b-84-yen">
                                 <rect key="frame" x="91.5" y="651" width="231.5" height="36"/>
                                 <string key="text">Great, You have completed setup.
-Now let's take you home. </string>
+Now let's got to home. </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j93-Nv-nd7" customClass="AdaptableSizeButton" customModule="Tracker" customModuleProvider="target">
-                                <rect key="frame" x="155" y="737" width="104" height="50"/>
+                                <rect key="frame" x="150" y="737" width="114.5" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="xA3-69-OGu"/>
@@ -250,7 +250,7 @@ Now let's take you home. </string>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Take me home!"/>
+                                <state key="normal" title="Go to home!"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="10"/>
@@ -286,13 +286,13 @@ Now let's take you home. </string>
     </scenes>
     <designables>
         <designable name="SZe-OZ-dAk">
-            <size key="intrinsicContentSize" width="182" height="30"/>
+            <size key="intrinsicContentSize" width="212" height="18"/>
         </designable>
         <designable name="Wh5-yn-jdF">
-            <size key="intrinsicContentSize" width="154" height="30"/>
+            <size key="intrinsicContentSize" width="184" height="18"/>
         </designable>
         <designable name="j93-Nv-nd7">
-            <size key="intrinsicContentSize" width="104" height="30"/>
+            <size key="intrinsicContentSize" width="114.5" height="18"/>
         </designable>
     </designables>
     <resources>
