@@ -290,9 +290,9 @@
 			isa = PBXGroup;
 			children = (
 				C6150E4727CF9148002DCCC7 /* App */,
-				C68B5E2727D5E70900AD9378 /* Onboarding */,
 				C621F88F27D34F7C004B2169 /* History */,
 				C613108327CF9DCF00245A04 /* Home */,
+				C68B5E2727D5E70900AD9378 /* Onboarding */,
 				C6D898DF27D0E0D80005353D /* Splash */,
 			);
 			path = Main;
