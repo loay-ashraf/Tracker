@@ -8,13 +8,13 @@ on:
 
 jobs:
   build:
-    name: Build GitIt scheme using iPhone 12 simulator
+    name: Build Tracker scheme
     runs-on: macos-latest
 
     strategy:
           matrix:
             run-config:
-              - { scheme: GitIt, destination: 'platform=iOS Simulator,OS=latest,name=iPhone 12' }
+              - { scheme: Tracker, destination: 'platform=iOS Simulator,OS=latest,name=iPhone 12' }
               
     steps:
       - name: Checkout
