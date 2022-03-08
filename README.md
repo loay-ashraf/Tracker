@@ -1,7 +1,7 @@
 # Tracker
 
 <p align="center">
-<img src="Images/Banner.jpeg" width="600">
+<img src="Images/Cover.jpeg" width="600">
 <br/>
 Tracker is a simple location logger app using Core Location and Realm frameworks.
 <br/>
