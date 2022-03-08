@@ -24,6 +24,7 @@ Written in Swift and MVVM architecture.
 ----------|-----------------
 :round_pushpin: | View current location on map
 :spiral_notepad: | Track, review and share visited locations
+:incoming_envelope: | Location update notifications
 :tada: | New User onboarding
 :fire: | Lottie animations
 :octocat: | 100% Open source
