@@ -24,6 +24,7 @@ Written in Swift and MVVM architecture.
 :round_pushpin: | View current location on map
 :spiral_notepad: | Track, review and share visited locations
 :tada: | New User onboarding
+:fire: | Lottie animations
 :octocat: | 100% Open source
 
 ## Installation
@@ -50,6 +51,7 @@ visit [Rugby](https://github.com/swiftyfinch/Rugby) for installation instruction
 ### Third Party Libraries
 * [RealmSwift](https://github.com/realm/realm-swift)
 * [NotificationBannerSwift](https://github.com/Daltron/NotificationBanner)
+* [lottie-ios](https://github.com/airbnb/lottie-ios)
 
 ### Tools
 * Xcode 13.2
