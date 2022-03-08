@@ -33,14 +33,19 @@ class NotificationManager: NSObject {
         guard await authorizationStatus != .denied else {
             throw NotificationError.notificationAccessDenied
         }
+    }
+    
+    func requestAuthorization() async throws -> UNAuthorizationStatus {
         if await authorizationStatus == .notDetermined {
             let authOptions = UNAuthorizationOptions(arrayLiteral: .alert, .badge, .sound)
             do {
                 try await center.requestAuthorization(options: authOptions)
+                
             } catch {
                 throw NotificationError.notificationAuthorizationError(error)
             }
         }
+        return await authorizationStatus
     }
     
     // MARK: - Notification Methods

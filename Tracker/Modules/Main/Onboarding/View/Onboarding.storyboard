@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Onboarding View Controller-->
+        <scene sceneID="5cy-HF-J8G">
+            <objects>
+                <pageViewController storyboardIdentifier="OnboardingVC" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="63C-JI-Raa" customClass="OnboardingViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cuf-B2-ylw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-762" y="1158"/>
+        </scene>
+        <!--Intro View Controller-->
+        <scene sceneID="vAl-LF-6Qm">
+            <objects>
+                <viewController storyboardIdentifier="IntroVC" id="pXZ-JQ-8Ww" customClass="IntroViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EWi-mL-bxZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FcQ-NQ-WLV">
+                                <rect key="frame" x="79" y="321" width="256" height="254.5"/>
+                                <color key="tintColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="256" id="atr-QI-00h"/>
+                                    <constraint firstAttribute="width" constant="256" id="fHM-tm-qfj"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yei-QA-2s3">
+                                <rect key="frame" x="19.5" y="626" width="375" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="0CE-mK-zvf"/>
+                                    <constraint firstAttribute="height" constant="150" id="qjI-AD-IuP"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Welcome to Tracker!
+Your personal location tracking app.
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" metaFont="systemBold" size="20"/>
+                                            <font key="NSOriginalFont" metaFont="systemBold" size="20"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+
+Tracker enables you to log your everyday locations for later review or even sharing with friends.</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" metaFont="system" size="15"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe to get started." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svO-4H-5t6">
+                                <rect key="frame" x="135.5" y="796" width="143" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Hp8-0A-07z"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="svO-4H-5t6" firstAttribute="centerX" secondItem="EWi-mL-bxZ" secondAttribute="centerX" id="Azb-2Z-HXs"/>
+                            <constraint firstItem="svO-4H-5t6" firstAttribute="top" secondItem="Yei-QA-2s3" secondAttribute="bottom" constant="20" id="CgG-mn-xzb"/>
+                            <constraint firstItem="Yei-QA-2s3" firstAttribute="top" secondItem="FcQ-NQ-WLV" secondAttribute="bottom" constant="50" id="GXG-9m-kYX"/>
+                            <constraint firstItem="FcQ-NQ-WLV" firstAttribute="centerY" secondItem="EWi-mL-bxZ" secondAttribute="centerY" id="lsi-nB-ywh"/>
+                            <constraint firstItem="Yei-QA-2s3" firstAttribute="centerX" secondItem="EWi-mL-bxZ" secondAttribute="centerX" id="xTF-6B-sco"/>
+                            <constraint firstItem="FcQ-NQ-WLV" firstAttribute="centerX" secondItem="EWi-mL-bxZ" secondAttribute="centerX" id="ycy-aO-yPy"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EpY-Tg-3Ki" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="1158"/>
+        </scene>
+        <!--Location Access View Controller-->
+        <scene sceneID="wgM-OR-5AY">
+            <objects>
+                <viewController storyboardIdentifier="LocationAccessVC" id="hnj-Me-Rd5" customClass="LocationAccessViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3zE-Nh-ERa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uGo-h8-foH" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="79" y="320" width="256" height="256"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="256" id="S4g-ZI-E7A"/>
+                                    <constraint firstAttribute="width" constant="256" id="T7j-tg-5Mo"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="location-access"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracker needs to gain access to device location." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hhd-BG-gDg">
+                                <rect key="frame" x="42.5" y="651" width="329" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wh5-yn-jdF" customClass="AdaptableSizeButton" customModule="Tracker" customModuleProvider="target">
+                                <rect key="frame" x="115" y="739" width="184" height="50"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1UJ-Mq-ZqI"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Grant Location Access"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="grantLocationAccess:" destination="hnj-Me-Rd5" eventType="touchUpInside" id="EW8-jP-4Or"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QyL-3u-Ugb"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="Hhd-BG-gDg" firstAttribute="top" secondItem="uGo-h8-foH" secondAttribute="bottom" constant="75" id="60P-IO-iym"/>
+                            <constraint firstItem="Wh5-yn-jdF" firstAttribute="centerX" secondItem="3zE-Nh-ERa" secondAttribute="centerX" id="Adf-VC-iP2"/>
+                            <constraint firstItem="uGo-h8-foH" firstAttribute="centerX" secondItem="3zE-Nh-ERa" secondAttribute="centerX" id="FSA-05-j5M"/>
+                            <constraint firstItem="Hhd-BG-gDg" firstAttribute="centerX" secondItem="3zE-Nh-ERa" secondAttribute="centerX" id="SlH-Rm-7Vc"/>
+                            <constraint firstItem="Wh5-yn-jdF" firstAttribute="top" secondItem="Hhd-BG-gDg" secondAttribute="bottom" constant="70" id="dnC-Nq-wtY"/>
+                            <constraint firstItem="uGo-h8-foH" firstAttribute="centerY" secondItem="3zE-Nh-ERa" secondAttribute="centerY" id="vJg-iz-BlK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="grantLocationAccessButton" destination="Wh5-yn-jdF" id="h2z-xh-1cy"/>
+                        <outlet property="locaionAccessAnimationView" destination="uGo-h8-foH" id="OoM-yu-PBW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nrM-Xb-au2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1038" y="1158"/>
+        </scene>
+        <!--Notification Access View Controller-->
+        <scene sceneID="VNm-Wg-p3p">
+            <objects>
+                <viewController storyboardIdentifier="NotificationAccessVC" id="CSK-qY-gho" customClass="NotificationAccessViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2oH-Gr-lsX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="et3-0X-QW1" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="79" y="320" width="256" height="256"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="256" id="KT0-pq-62H"/>
+                                    <constraint firstAttribute="width" constant="256" id="XXj-0q-TMO"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="notifications-access"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracker needs to gain access to notifications." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ti-Wk-gkb">
+                                <rect key="frame" x="52.5" y="651" width="309.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZe-OZ-dAk" customClass="AdaptableSizeButton" customModule="Tracker" customModuleProvider="target">
+                                <rect key="frame" x="101" y="739" width="212" height="50"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="9Ec-iD-f89"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Grant Notifications Access"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="grantNotificationsAccess:" destination="CSK-qY-gho" eventType="touchUpInside" id="bem-7m-Ef2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="0SY-CM-zdb"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="et3-0X-QW1" firstAttribute="centerX" secondItem="2oH-Gr-lsX" secondAttribute="centerX" id="1XQ-9R-fGP"/>
+                            <constraint firstItem="et3-0X-QW1" firstAttribute="centerY" secondItem="2oH-Gr-lsX" secondAttribute="centerY" id="6LZ-Lw-Ork"/>
+                            <constraint firstItem="SZe-OZ-dAk" firstAttribute="top" secondItem="9ti-Wk-gkb" secondAttribute="bottom" constant="70" id="MeO-zr-JFC"/>
+                            <constraint firstItem="9ti-Wk-gkb" firstAttribute="centerX" secondItem="2oH-Gr-lsX" secondAttribute="centerX" id="gWb-1p-Ce1"/>
+                            <constraint firstItem="9ti-Wk-gkb" firstAttribute="top" secondItem="et3-0X-QW1" secondAttribute="bottom" constant="75" id="uhL-E0-Msc"/>
+                            <constraint firstItem="SZe-OZ-dAk" firstAttribute="centerX" secondItem="2oH-Gr-lsX" secondAttribute="centerX" id="wFi-cK-dla"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="grantNotificationsAccessButton" destination="SZe-OZ-dAk" id="oCm-qM-PxY"/>
+                        <outlet property="noticationsAccessAnimationView" destination="et3-0X-QW1" id="d1o-wT-3yb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1JX-YO-9bP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1951" y="1158"/>
+        </scene>
+        <!--Conclusion View Controller-->
+        <scene sceneID="sxh-ry-FZk">
+            <objects>
+                <viewController storyboardIdentifier="ConclusionVC" id="5gA-7t-0Fi" customClass="ConclusionViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fUD-or-dBE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZMu-5k-1oP" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="79" y="320" width="256" height="256"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="256" id="Tqg-1W-gDZ"/>
+                                    <constraint firstAttribute="width" constant="256" id="daE-ce-ht9"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="success"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0b-84-yen">
+                                <rect key="frame" x="91.5" y="651" width="231.5" height="36"/>
+                                <string key="text">Great, You have completed setup.
+Now let's got to home. </string>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j93-Nv-nd7" customClass="AdaptableSizeButton" customModule="Tracker" customModuleProvider="target">
+                                <rect key="frame" x="150" y="737" width="114.5" height="50"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="xA3-69-OGu"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Go to home!"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="takeMeHome:" destination="5gA-7t-0Fi" eventType="touchUpInside" id="QjJ-ic-lx5"/>
+                                    <segue destination="INK-4X-l9u" kind="unwind" unwindAction="unwindToSplashWithUnwindSegue:" id="LpR-Gl-cKk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3oA-6l-cdF"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="ZMu-5k-1oP" firstAttribute="centerY" secondItem="fUD-or-dBE" secondAttribute="centerY" id="6fo-VQ-prn"/>
+                            <constraint firstItem="ZMu-5k-1oP" firstAttribute="centerX" secondItem="fUD-or-dBE" secondAttribute="centerX" id="Frv-4f-f6y"/>
+                            <constraint firstItem="t0b-84-yen" firstAttribute="centerX" secondItem="fUD-or-dBE" secondAttribute="centerX" id="IOO-MQ-ukh"/>
+                            <constraint firstItem="j93-Nv-nd7" firstAttribute="centerX" secondItem="fUD-or-dBE" secondAttribute="centerX" id="pdj-S1-fGi"/>
+                            <constraint firstItem="j93-Nv-nd7" firstAttribute="top" secondItem="t0b-84-yen" secondAttribute="bottom" constant="50" id="pgH-dH-na4"/>
+                            <constraint firstItem="t0b-84-yen" firstAttribute="top" secondItem="ZMu-5k-1oP" secondAttribute="bottom" constant="75" id="tsA-Ze-rH8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="conclusionAnimationView" destination="ZMu-5k-1oP" id="NKJ-J8-ZZ6"/>
+                        <outlet property="conclusionButton" destination="j93-Nv-nd7" id="yx4-0O-UD2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="THc-7s-wJt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="INK-4X-l9u" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2864" y="1159"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="SZe-OZ-dAk">
+            <size key="intrinsicContentSize" width="212" height="18"/>
+        </designable>
+        <designable name="Wh5-yn-jdF">
+            <size key="intrinsicContentSize" width="184" height="18"/>
+        </designable>
+        <designable name="j93-Nv-nd7">
+            <size key="intrinsicContentSize" width="114.5" height="18"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="location.fill" catalog="system" width="128" height="121"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.0" blue="0.57499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

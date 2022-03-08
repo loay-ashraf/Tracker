@@ -11,5 +11,6 @@ target 'Tracker' do
   # Pods for Tracker
   pod 'RealmSwift', '~>10'
   pod 'NotificationBannerSwift', '~> 3.0.0'
+  pod 'lottie-ios'
 
 end
