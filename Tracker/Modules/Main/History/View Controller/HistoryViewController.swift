@@ -52,8 +52,10 @@ class HistoryViewController: DPSFDynamicTableViewController<HistoryViewModel> {
         super.setEditing(editing, animated: animated)
         if editing {
             editButton?.title = "Done"
+            clearButton.isEnabled = false
         } else {
             editButton?.title = "Edit"
+            clearButton.isEnabled = true
         }
     }
     
@@ -91,7 +93,7 @@ class HistoryViewController: DPSFDynamicTableViewController<HistoryViewModel> {
                     } else {
                         self?.xTableView.transition(to: .presenting)
                         self?.editButton.isEnabled = true
-                        self?.clearButton.isEnabled = true
+                        self?.clearButton.isEnabled = self?.isEditing == true ? false : true
                     }
                 }
             }
