@@ -60,13 +60,13 @@ class HistoryDetailViewController: UIViewController, StoryboardableViewControlle
         configureView()
         updateLocationMap()
         updateLocationLabels()
-        
     }
     
     // MARK: - View Helper Methods
     
     func configureView() {
         locationView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.85)
+        hidesBottomBarWhenPushed = true
     }
     
     func updateLocationMap() {
