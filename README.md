@@ -37,7 +37,7 @@ git clone https://github.com/loay-ashraf/Tracker
 ### Install Required pods :package:
 
 ```sh
-cd GitIt
+cd Tracker
 pod install
 ```
 
